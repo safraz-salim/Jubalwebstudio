@@ -2,9 +2,10 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Jubal Web Studio</title>
+        <title>Jubal Web Studio - One Page HTML Template</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
-     
+        <meta content="Portfolio HTML Template" name="keywords">
+        <meta content="Portfolio HTML Template" name="description">
 
         <link
   rel="stylesheet"
@@ -26,6 +27,9 @@
 
         <!-- Template Stylesheet -->
         <link href="css/style.css" rel="stylesheet">
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
     </head>
 
     <body>
@@ -50,7 +54,8 @@
         <!-- Header Nav End -->
         
         <!-- Header carousel Start-->
-        <div id="header-carousel">
+        <div id="header-carousel" class="hero-scroll-rotate">
+
             <div class="header-carousel-container">
                 <div id="headerCarousel" class="carousel  slide carousel-fade" data-ride="carousel">
                 
@@ -119,8 +124,11 @@
                     <div class="col-md-12">
                         <div class="welcome m-auto">
                             <p>
-                                Welcome to Jubal Web Studio, where creativity meets technology. We design and build modern, high-performance websites and full-stack applications that help brands stand out and scale with confidence. From sleek user interfaces to reliable backend systems, we deliver digital solutions that are fast, secure, and built to last.
-                            </p>
+  <span id="typing-text"
+        data-text="Welcome to Jubal Web Studio, where creativity meets technology. We design and build modern, high-performance websites and full-stack applications that help brands stand out and scale with confidence. From sleek user interfaces to reliable backend systems, we deliver digital solutions that are fast, secure, and built to last.">
+  </span>
+</p>
+
                           
                         </div>
                     </div>
@@ -253,42 +261,52 @@
         </div>
         <!-- Services End -->
 
-        <!-- Counter Start -->
-        <div id="counters">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-3 col-sm-6">
-                        <div class="counter">
-                            <div class="counter-icon"><i class="fa fa-calendar"></i></div>
-                            <div class="number"> <span>5</span></div>
-                            <h4 class="font-weight">Years of Experience</h4>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="counter">
-                            <div class="counter-icon"><i class="fa fa-check"></i></div>
-                            <div class="number"> <span>7</span></div>
-                            <h4 class="font-weight">Completed Projects</h4>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="counter">
-                            <div class="counter-icon"><i class="fa fa-users"></i></div>
-                            <div class="number"> <span>4</span></div>
-                            <h4 class="font-weight">Total Clients</h4>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="counter">
-                            <div class="counter-icon"><i class="fa fa-heart"></i></div>
-                            <div class="number"> <span>2</span></div>
-                            <h4 class="font-weight">Ongoing Projets</h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Counter End -->
+        <!-- Projects Carousel Start -->
+<div id="projects" class="container my-5 scroll-rotate-in">
+
+
+  <h1 class="text-center mb-4">Some of Our Recent Projects</h1>
+
+  <div id="projectsCarousel" class="carousel slide" data-bs-ride="carousel">
+
+    <!-- Indicators -->
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#projectsCarousel" data-bs-slide-to="0" class="active"></button>
+      <button type="button" data-bs-target="#projectsCarousel" data-bs-slide-to="1"></button>
+      <button type="button" data-bs-target="#projectsCarousel" data-bs-slide-to="2"></button>
+    </div>
+
+    <!-- Slides -->
+    <div class="carousel-inner">
+
+      <div class="carousel-item active">
+        <img src="img/screencapture-127-0-0-1-5500-2026-02-09-08_48_08.png" class="d-block w-100" alt="Project 1">
+      </div>
+
+      <div class="carousel-item">
+        <img src="img/screencapture-127-0-0-1-5500-2026-02-09-08_48_08.png" class="d-block w-100" alt="Project 2">
+      </div>
+
+      <div class="carousel-item">
+        <img src="img/screencapture-127-0-0-1-5500-2026-02-09-08_48_08.png" class="d-block w-100" alt="Project 3">
+      </div>
+
+    </div>
+
+    <!-- Controls -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#projectsCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+
+    <button class="carousel-control-next" type="button" data-bs-target="#projectsCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+
+  </div>
+</div>
+<!-- Projects Carousel End -->
+
+
 
         
 
@@ -545,7 +563,61 @@ form.addEventListener('submit', e => {
 });
 </script>
 
+<script>
+  const hero = document.querySelector('.hero-scroll-rotate');
+
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    const heroHeight = hero.offsetHeight;
+
+    // Clamp scroll progress between 0 and 1
+    const progress = Math.min(scrollY / heroHeight, 1);
+
+    // Animation values
+    const rotate = progress * -18;     // degrees
+    const scale = 1 - progress * 1;
+    const opacity = 1 - progress * 0.7;
+
+    hero.style.transform = `
+      rotateZ(${rotate}deg)
+      scale(${scale})
+    `;
+    hero.style.opacity = opacity;
+  });
+</script>
+
+<script>
+  const rotateInSections = document.querySelectorAll('.scroll-rotate-in');
+
+  function animateRotateIn() {
+    const vh = window.innerHeight;
+
+    rotateInSections.forEach(section => {
+      const rect = section.getBoundingClientRect();
+
+      // Progress from bottom of viewport to center
+      const progress = Math.min(
+        Math.max((vh - rect.top) / (vh * 0.6), 0),
+        1
+      );
+
+      const rotate = (1 - progress) * 12;
+      const scale = 0.92 + progress * 0.08;
+      const opacity = progress;
+
+      section.style.transform = `
+        rotateZ(${rotate}deg)
+        scale(${scale})
+      `;
+      section.style.opacity = opacity;
+    });
+
+    requestAnimationFrame(animateRotateIn);
+  }
+
+  animateRotateIn();
+</script>
+
+
     </body>
 </html>
-
-
