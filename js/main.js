@@ -112,3 +112,18 @@
     
 })(jQuery);
 
+
+  const typingEl = document.getElementById("typing-text");
+  const text = typingEl.dataset.text;
+  let index = 0;
+
+  function typeText() {
+    if (index < text.length) {
+      typingEl.textContent += text.charAt(index);
+      index++;
+      setTimeout(typeText, 50); // typing speed
+    }
+  }
+
+  // Start typing when page loads
+  window.addEventListener("load", typeText);
