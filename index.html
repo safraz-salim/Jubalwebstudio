@@ -1,706 +1,1255 @@
-<!DOCTYPE html>
-<html class="scroll-smooth" lang="en"><head>
-     <link rel="icon" type="image/png" href="/Gemini_Generated_Image_pe45lope45lope45-removebg-preview.png
-">
-      <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-NSZ94FF0G2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+<html lang="en"><head></head><body class="selection:bg-[var(--primary-accent)] selection:text-black overflow-hidden">
 
-  gtag('config', 'G-NSZ94FF0G2');
-</script>
+
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Web Design in Guyana | Jubal Web Studio</title>
-<meta name="description" content="Professional web design services in Guyana. We build modern, fast, and secure websites for businesses in Georgetown and across Guyana.">
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@200;300;400;500&amp;display=swap" rel="stylesheet"/>
+<meta name="keywords" content="web design guyana, website development georgetown guyana, web developer guyana, business websites guyana">
+
+<meta name="author" content="Safraz Salim">
+
+<meta property="og:title" content="Jubal Web Studio | Web Design Guyana">
+<meta property="og:description" content="Professional web design and website development services in Georgetown Guyana.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://jubalwebstudio.com">
+<title>Web Design Guyana | Website Development in Georgetown – Jubal Web Studio</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&amp;family=Inter:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@300;500&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
-<script>
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              solar: "#FF4500",
-              flare: "#FFFF00",
-              charcoal: "#1A1A1A",
-              pitch: "#000000",
-              stark: "#FFFFFF",
-              ash: "#CCCCCC",
-            },
-            fontFamily: {
-              serif: ['Playfair Display', 'serif'],
-              sans: ['Plus Jakarta Sans', 'sans-serif'],
-            },
-            animation: {
-                'bubble': 'bubble-rise 20s infinite ease-in',
-                'current': 'current-drift 30s infinite ease-in-out',
-                'refraction': 'refraction-pulse 8s infinite alternate ease-in-out',
-                'marquee-fast': 'marquee 15s linear infinite',
-            },
-            keyframes: {
-                'bubble-rise': {
-                    '0%': { transform: 'translateY(100vh) scale(1)', opacity: '0' },
-                    '50%': { opacity: '0.4' },
-                    '100%': { transform: 'translateY(-20vh) scale(1.6)', opacity: '0' },
-                },
-                'current-drift': {
-                    '0%, 100%': { transform: 'translateX(-10%) translateY(-5%) scale(1)' },
-                    '50%': { transform: 'translateX(10%) translateY(5%) scale(1.1)' },
-                },
-                'refraction-pulse': {
-                  '0%': { filter: 'drop-shadow(0 0 10px rgba(255,69,0,0.2)) blur(0px)' },
-                  '100%': { filter: 'drop-shadow(0 0 25px rgba(255,255,0,0.3)) blur(0.5px)' },
-                },
-                'marquee': {
-                    '0%': { transform: 'translateX(0)' },
-                    '100%': { transform: 'translateX(-50%)' },
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries">
+    window.addEventListener('scroll', () => {
+        const marqueeSection = document.getElementById('marquee-section');
+        if (marqueeSection) {
+            const rect = marqueeSection.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+            
+            if (rect.top < windowHeight && rect.bottom > 0) {
+                const scrollPosition = window.pageYOffset;
+                const scrollLineLeft = document.querySelector('.scroll-line-left');
+                const scrollLineRight = document.querySelector('.scroll-line-right');
+                
+                // Horizontal parallax logic
+                if (scrollLineLeft) {
+                    scrollLineLeft.style.transform = `translateX(${-scrollPosition * 0.5 % 500}px)`;
                 }
+                if (scrollLineRight) {
+                    scrollLineRight.style.transform = `translateX(${(scrollPosition * 0.5 % 500) - 500}px)`;
+                }
+
+                // Color transition logic
+                const sectionHeight = rect.height + windowHeight;
+                const progress = Math.max(0, Math.min(1, (windowHeight - rect.top) / sectionHeight));
+                
+                // Interpolate between White (255, 255, 255) and Orange (255, 107, 0)
+                const r = 255;
+                const g = Math.round(255 - (progress * 148)); // 255 -> 107
+                const b = Math.round(255 - (progress * 255)); // 255 -> 0
+                
+                const marqueeTexts = marqueeSection.querySelectorAll('span:not(.bg-\\[var\\(--primary-accent\\)\\])');
+                marqueeTexts.forEach(text => {
+                    const originalOpacity = text.classList.contains('opacity-40') ? 0.4 : 
+                                          text.classList.contains('opacity-60') ? 0.6 : 
+                                          text.classList.contains('opacity-80') ? 0.8 : 0.9;
+                    text.style.color = `rgba(${r}, ${g}, ${b}, ${originalOpacity})`;
+                });
             }
-          },
-        },
-      };
+        }
+    });
+    
+    const wordObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const words = entry.target.querySelectorAll('.word');
+                words.forEach((word, index) => {
+                    setTimeout(() => {
+                        word.classList.remove('opacity-0', 'translate-y-4');
+                        word.classList.add('opacity-100', 'translate-y-0');
+                    }, index * 40);
+                });
+                wordObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll('.word-reveal').forEach(el => wordObserver.observe(el));
     </script>
 <style type="text/tailwindcss">
-        ::-webkit-scrollbar { width: 5px; }
-        ::-webkit-scrollbar-track { background: #000000; }
-        ::-webkit-scrollbar-thumb { background: #FF4500; border-radius: 10px; }
+        :root {
+            --primary-accent: #FF6B00;
+            --bg-neutral: #121212;
+            --bg-secondary: #0A1A12;
+            --text-main: #FFFFFF;
+            --dark-charcoal: #121212;
+            --forest-green: #0A1A12;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-orange: rgba(255, 107, 0, 0.08);
+            --nav-glass-bg: rgba(10, 10, 10, 0.85);
+            --nav-glass-orange: rgba(255, 107, 0, 0.05);
+        }
         body {
-            background: radial-gradient(circle at 50% 50%, #FF4500 0%, #1A1A1A 40%, #000000 100%);
-            color: #CCCCCC;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--dark-charcoal);
+            color: var(--text-main);
             overflow-x: hidden;
         }
-        .data-capsule {
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid #FFFF00;
-            box-shadow: inset 0 0 20px rgba(255, 69, 0, 0.1);
-            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        @media (min-width: 1024px) {
+            body {
+                cursor: none;
+            }
+            #custom-cursor, #custom-cursor-follower, #cursor-trail-container {
+                display: block;
+            }
         }
-        .data-capsule:hover {
-            background: rgba(26, 26, 26, 0.8);
-            border-color: #FFFFFF;
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), inset 0 0 30px rgba(255, 69, 0, 0.2);
+        @media (max-width: 1023px) {
+            body {
+                cursor: auto;
+            }
+            #custom-cursor, #custom-cursor-follower, #cursor-trail-container {
+                display: none !important;
+            }
         }
-        .liquid-metallic {
-            background: linear-gradient(180deg, #FFFFFF 0%, #CCCCCC 45%, #666666 55%, #FFFFFF 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.4));
+        .font-serif-display {
+            font-family: 'Playfair Display', serif;
         }
-        .fracture-bottom {
-            mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
-            -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+        .font-mono {
+            font-family: 'JetBrains Mono', monospace;
         }
-        .warped-frame {
-            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+        .editorial-title {
+            line-height: 0.9;
+            letter-spacing: -0.03em;
+        }
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1), transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .reveal-up.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .stagger-1 { transition-delay: 0.1s; }
+        .stagger-2 { transition-delay: 0.25s; }
+        .stagger-3 { transition-delay: 0.4s; }
+        .scroll-disappear {
+            transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+            will-change: transform, opacity;
+        }
+        .reveal-wipe {
+            position: relative;
             overflow: hidden;
-            transition: border-radius 1s ease-in-out;
-            border: 2px solid #FFFF00;
         }
-        .warped-frame:hover {
-            border-radius: 60% 40% 30% 70% / 50% 60% 40% 50%;
+        .reveal-wipe::after {
+            content: '';
+            position: absolute; 
+            inset: 0;
+            background: var(--dark-charcoal);
+            transition: transform 1.4s cubic-bezier(0.77, 0, 0.175, 1);
+            transform-origin: right;
         }
-        .bubble {
-    position: absolute;
-    background: radial-gradient(
-        circle at 30% 30%, 
-        rgba(255, 120, 0, 0.8), 
-        rgba(255, 69, 0, 0.5) 40%, 
-        rgba(255, 255, 0, 0.25) 70%, 
-        transparent 100%
-    );
-    border: 1px solid rgba(255, 255, 0, 0.4);
-    border-radius: 50%;
-    pointer-events: none;
-    box-shadow: 
-        0 0 20px rgba(255, 69, 0, 0.6),
-        0 0 40px rgba(255, 255, 0, 0.3);
-}
-        .light-current {
-            position: fixed;
-            width: 150vw;
-            height: 150vh;
-            background: radial-gradient(ellipse at center, rgba(255, 69, 0, 0.25) 0%, transparent 70%);
-            top: -25%;
-            left: -25%;
+        .reveal-wipe.is-visible::after {
+            transform: scaleX(0);
+        }
+        .project-card-container {
+            cursor: pointer;
+        }
+        .project-title-transition {
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), font-weight 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            transform-origin: left center;
+        }
+        .project-card-container:hover .project-title-transition {
+            transform: scale(1.08);
+            font-weight: 900;
+        }
+        .project-image-transition {
+            transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .project-card-container:hover .project-image-transition {
+            transform: scale(1.1);
+        }
+        .service-card {
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
+            box-shadow: 0 25px 60px -10px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 107, 0, 0.1);
+            background-color: var(--glass-bg);
+            backdrop-filter: blur(12px) saturate(140%);
+            -webkit-backdrop-filter: blur(12px) saturate(140%);
+        }
+        .service-card-bg {
+            position: absolute;
+            inset: 0;
             z-index: -1;
-            filter: blur(80px);
+            background-size: cover;
+            background-position: center;
+            filter: grayscale(100%) contrast(120%) brightness(0.6);
+            opacity: 0.15;
+            transition: opacity 0.6s ease, transform 0.8s ease;
         }
-        @keyframes pop {
-            0% { transform: scale(1); opacity: 0.4; }
-            50% { transform: scale(1.5); opacity: 0.6; }
-            100% { transform: scale(2); opacity: 0; }
+        .service-card:hover .service-card-bg {
+            opacity: 0.3;
+            transform: scale(1.05);
         }
-        .bubble {
-            pointer-events: auto !important;
-            cursor: crosshair;
+        .service-card:hover {
+            box-shadow: 0 40px 80px -15px rgba(0, 0, 0, 0.6), 0 0 20px 2px rgba(255, 107, 0, 0.15);
+            border-color: rgba(255, 107, 0, 0.4);
+        }
+        .glow-text {
+            transition: text-shadow 0.6s ease, color 0.6s ease;
+        }
+        .service-card:hover .glow-text {
+            text-shadow: 0 0 15px rgba(255, 107, 0, 0.4);
+        }
+        .nav-link {
+            position: relative;
+            display: inline-block;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: var(--primary-accent);
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .glass-navbar {
+            height: 100px;
+            background-color: var(--nav-glass-bg);
+            background-image: radial-gradient(at 50% 0%, var(--nav-glass-orange) 0%, transparent 70%);
+            backdrop-filter: blur(18px) saturate(120%);
+            -webkit-backdrop-filter: blur(18px) saturate(120%);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .section-separator {
+            width: 100%;
+            height: 2px;
+            background: var(--text-main);
+            opacity: 0.1;
+            clip-path: ellipse(50% 100% at 50% 50%);
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+            display: flex;
+            width: fit-content;
+            animation: marquee 30s linear infinite;
+        }
+        #preloader {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: var(--forest-green);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: transform 1.5s cubic-bezier(0.85, 0, 0.15, 1);
+            will-change: transform;
+        }
+        #preloader.reveal-curtain {
+            transform: translateY(-100%);
+        }
+        .terminal-text {
+            color: var(--primary-accent);
+            font-size: 13px;
+            letter-spacing: 0.1em;
+            line-height: 2;
+            min-height: 150px;
+            width: 320px;
+        }
+        .terminal-cursor {
+            display: inline-block;
+            width: 8px;
+            height: 15px;
+            background: var(--primary-accent);
+            margin-left: 4px;
+            vertical-align: middle;
+            animation: blink 0.8s infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        #preloader-logo {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        #preloader-logo.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        #progress-container {
+            width: 320px;
+            margin-top: 1.5rem;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        #progress-container.is-active {
+            opacity: 1;
+        }
+        .progress-bar-bg {
+            height: 1px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        #progress-fill {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 0%;
+            background: var(--primary-accent);
+            transition: width 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        #progress-percentage {
+            font-size: 10px;
+            letter-spacing: 0.2em;
+            color: rgba(255, 255, 255, 0.5);
+            margin-top: 10px;
+            text-align: right;
+            font-weight: 300;
+        }
+        .hero-reveal-container {
+            transform: translateY(80px);
+            transition: transform 1.5s cubic-bezier(0.85, 0, 0.15, 1);
+            will-change: transform;
+        }
+        .hero-reveal-bg {
+            transform: translateY(40px);
+            transition: transform 1.5s cubic-bezier(0.85, 0, 0.15, 1);
+            will-change: transform;
+        }
+        body.is-revealed .hero-reveal-container {
+            transform: translateY(0);
+        }
+        body.is-revealed .hero-reveal-bg {
+            transform: translateY(0);
+        }
+        .floating-label-group {
+            position: relative;
+            margin-top: 2.5rem;
+        }
+        .floating-label-group input, 
+        .floating-label-group textarea {
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            width: 100%;
+            padding: 0.75rem 0;
+            font-size: 1rem;
+            color: var(--text-main);
+            transition: border-color 0.3s ease;
+        }
+        .floating-label-group input:focus, 
+        .floating-label-group textarea:focus {
+            outline: none;
+            border-bottom-color: var(--primary-accent);
+            box-shadow: none;
+        }
+        .floating-label-group label {
+            position: absolute;
+            left: 0;
+            top: 0.75rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: rgba(255, 255, 255, 0.4);
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+        .floating-label-group input:focus ~ label,
+        .floating-label-group input:not(:placeholder-shown) ~ label,
+        .floating-label-group textarea:focus ~ label,
+        .floating-label-group textarea:not(:placeholder-shown) ~ label {
+            top: -1.2rem;
+            font-size: 0.6rem;
+            color: var(--primary-accent);
+            opacity: 1;
+        }
+        .faq-item summary {
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            padding: 2.5rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+        .faq-item[open] summary .icon-plus {
+            transform: rotate(45deg);
+        }
+        .faq-item summary .icon-plus {
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .faq-content {
+            padding-bottom: 2.5rem;
+        }
+        .cta-button {
+            transition: box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.5s ease, color 0.5s ease, transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            will-change: transform;
+        }
+        .cta-button:hover {
+            box-shadow: 0 0 25px 2px rgba(255, 107, 0, 0.35);
+        }
+        .sticky-wrapper {
+            position: sticky;
+            top: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+        .faq-container-spacer {
+            padding-top: 15vh;
+            padding-bottom: 15vh;
+        }
+        .magnetic-target {
+            will-change: transform;
+            transition: transform 0.4s cubic-bezier(0.10, 1, 0.10, 1);
+        }
+        #custom-cursor {
+            position: fixed;
+            width: 30px; height: 30px; 
+            background: white;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 99999;
+            transform: translate(-50%, -50%);
+            mix-blend-mode: difference;
+            will-change: transform;
+            transition: width 0.3s ease, height 0.3s ease;
+        }
+        #cursor-trail-container {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 99998;
+        }
+        .cursor-trail-dot {
+            position: absolute;
+            width: 35px; height: 35px;
+            background: white;
+            border-radius: 50%;
+            mix-blend-mode: difference;
+            opacity: 0.12;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
             transition: opacity 0.3s ease;
         }
-        .bubble:hover {
-            animation: pop 0.4s ease-out forwards !important;
+        #custom-cursor-follower {
+            position: fixed;
+            width: 50px; height: 50px;
+            border: 1px solid white;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 99998;
+            transform: translate(-50%, -50%);
+            mix-blend-mode: difference;
+            transition: width 0.3s ease, height 0.3s ease;
+            will-change: transform;
         }
-        .tapered-divider {
-            height: 1px;
-            width: 80%;
-            margin: 0 auto;
-            background: linear-gradient(to right, transparent, #FFFF00 50%, transparent);
-            box-shadow: 0 0 15px rgba(255, 69, 0, 0.2);
+        .cursor-active #custom-cursor {
+            width: 100px; height: 100px;
         }
-        @keyframes gold-pulse {
-          0%, 100% { box-shadow: 0 0 15px rgba(255, 69, 0, 0.2); filter: brightness(1); }
-          50% { box-shadow: 0 0 40px rgba(255, 255, 0, 0.6); filter: brightness(1.8); }
+        .cursor-active #custom-cursor-follower {
+            width: 140px; height: 140px;
         }
-        .divider-pulse { animation: gold-pulse 2s infinite ease-in-out; }
-        @keyframes slow-unfold {
-          0% { transform: rotate(45deg) scale(1); }
-          50% { transform: rotate(225deg) scale(1.1); }
-          100% { transform: rotate(405deg) scale(1); }
+        .testimonial-zoom {
+            will-change: transform, opacity;
         }
-        .logo-unfold { animation: slow-unfold 12s infinite linear; }
-        .cursor-bubble {
-          position: fixed;
-          pointer-events: none;
-          background: radial-gradient(circle at 30% 30%, rgba(255, 69, 0, 0.6), transparent);
-          border: 1px solid rgba(255, 255, 0, 0.4);
-          border-radius: 50%;
-          z-index: 9999;
-          transform: translate(-50%, -50%);
+        .perspective-container {
+            perspective: 1200px;
+        }
+        #faq-header-reveal {
+            will-change: transform, opacity;
+            transform-origin: center top;
+        }
+        .hero-video-bg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: 0;
+            transform: translate(-50%, -50%) scale(1);
+            object-fit: cover;
+            filter: grayscale(40%) contrast(110%) brightness(0.8);
+            will-change: transform;
+        }
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at center, rgba(18, 18, 18, 0.4) 0%, rgba(18, 18, 18, 0.85) 100%);
+            z-index: 1;
+        }
+    
+        .scroll-line-left, .scroll-line-right {
+            will-change: transform;
+            transition: transform 0.1s linear;
+        }
+    
+        .scroll-line-left span, .scroll-line-right span {
+            transition: color 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+    
+        @keyframes shimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+        .logo-shimmer {
+            background: linear-gradient(90deg, #FFFFFF 0%, #FFFFFF 40%, #FF6B00 50%, #FFFFFF 60%, #FFFFFF 100%);
+            background-size: 200% auto;
+            color: transparent;
+            background-clip: text;
+            -webkit-background-clip: text;
+            animation: shimmer 4s linear infinite;
+        }
+    
+        .project-3d-card {
+            perspective: 2000px;
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            transform-style: preserve-3d;
+        }
+        .project-3d-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.7), 0 0 30px rgba(255, 107, 0, 0.15);
+        }
+        .project-3d-card-inner {
+            transform: rotateX(10deg) rotateY(-5deg) translateZ(0);
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: transform;
+        }
+        .project-3d-card:hover .project-3d-card-inner {
+            transform: rotateX(15deg) rotateY(10deg) translateZ(80px);
+        }
+        .project-3d-image-wrap {
+            transform: translateZ(20px);
+            box-shadow: 0 50px 100px -20px rgba(0,0,0,0.5);
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .project-3d-card:hover .project-3d-image-wrap {
+            transform: translateZ(40px);
+        }
+        .project-3d-content {
+            transform: translateZ(40px);
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .project-3d-card:hover .project-3d-content {
+            transform: translateZ(100px);
+        }
+        .scroll-tilt-entry {
+            opacity: 0;
+            transform: translateY(100px) rotateX(25deg);
+            transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .scroll-tilt-entry.is-visible {
+            opacity: 1;
+            transform: translateY(0) rotateX(0);
         }
     </style>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-</head>
-<body class="font-sans antialiased selection:bg-solar selection:text-stark">
-<div class="light-current animate-current"></div>
-<div class="fixed inset-0 -z-10 pointer-events-none">
-<div class="bubble animate-bubble" style="width: 40px; height: 40px; left: 5%; animation-delay: 0s;"></div>
-<div class="bubble animate-bubble" style="width: 25px; height: 25px; left: 15%; animation-delay: 7s;"></div>
-<div class="bubble animate-bubble" style="width: 50px; height: 50px; left: 25%; animation-delay: 3s;"></div>
-<div class="bubble animate-bubble" style="width: 20px; height: 20px; left: 35%; animation-delay: 11s;"></div>
-<div class="bubble animate-bubble" style="width: 45px; height: 45px; left: 45%; animation-delay: 5s;"></div>
-<div class="bubble animate-bubble" style="width: 30px; height: 30px; left: 55%; animation-delay: 1s;"></div>
-<div class="bubble animate-bubble" style="width: 60px; height: 60px; left: 65%; animation-delay: 9s;"></div>
-<div class="bubble animate-bubble" style="width: 25px; height: 25px; left: 75%; animation-delay: 4s;"></div>
-<div class="bubble animate-bubble" style="width: 55px; height: 55px; left: 85%; animation-delay: 12s;"></div>
-<div class="bubble animate-bubble" style="width: 35px; height: 35px; left: 95%; animation-delay: 2s;"></div>
-<div class="bubble animate-bubble" style="width: 20px; height: 20px; left: 18%; animation-delay: 15s;"></div>
-<div class="bubble animate-bubble" style="width: 40px; height: 40px; left: 82%; animation-delay: 18s;"></div>
+<div id="custom-cursor"></div>
+<div id="custom-cursor-follower"></div>
+<div id="cursor-trail-container"></div>
+<div id="preloader">
+<div class="flex flex-col items-center">
+<div class="terminal-text font-mono" id="terminal-output"></div>
+<div class="font-mono" id="progress-container">
+<div class="progress-bar-bg">
+<div id="progress-fill"></div>
 </div>
-<nav class="fixed w-full z-50 top-0 left-0 border-b border-white/10 backdrop-blur-3xl bg-pitch/60 transition-all duration-500">
-<div class="max-w-7xl mx-auto px-8">
-<div class="flex items-center justify-between h-20">
-<div class="flex items-center gap-4 group cursor-pointer">
-<div class="w-8 h-8 border border-flare flex items-center justify-center logo-unfold">
-<div class="w-4 h-4 bg-solar/40"></div>
+<div id="progress-percentage">0%</div>
 </div>
-<span class="text-stark text-1xl font-serif tracking-widest uppercase">JUBAL <span class="text-flare italic">Web Studio</span></span>
+<div class="flex flex-col items-center text-white mt-12s" id="preloader-logo">
+<span class="text-3xl font-serif-display font-black tracking-tighter uppercase mb-2">Jubal Studio</span>
+<span class="text-[9px] font-bold tracking-[0.5em] uppercase opacity-40">Digital Excellence</span>
 </div>
-<div class="hidden md:flex items-center space-x-12 font-sans text-[12px] tracking-[0.3em] uppercase">
-<a class="text-ash/60 hover:text-flare transition-colors" href="#philosophy-section">Vision</a>
-<a class="text-ash/60 hover:text-flare transition-colors" href="#service">Service</a>
-<a class="text-ash/60 hover:text-flare transition-colors" href="#our-work">Our Work</a>
-<a class="text-ash/60 hover:text-flare transition-colors" href="#price">Pricings</a>
 </div>
-<div>
-<a class="px-8 py-2.5 bg-transparent border border-flare text-flare font-serif text-xs italic tracking-widest hover:bg-flare hover:text-pitch transition-all duration-500 rounded-full" href="#contact">
-                    Contact
-                </a>
 </div>
+<nav class="fixed top-0 w-full z-50 glass-navbar">
+<div class="max-w-7xl mx-auto px-8 h-full flex justify-between items-center">
+<div class="flex items-center space-x-12">
+<span class="text-base font-serif-display font-black tracking-tighter uppercase text-white"><div class="flex items-center space-x-3">
+<div class="relative w-6 h-6 flex items-center justify-center group/neuron mr-1">
+<svg class="w-full h-full fill-none stroke-[var(--primary-accent)] stroke-[1.5] overflow-visible" viewbox="0 0 24 24">
+<circle class="fill-[var(--primary-accent)]" cx="12" cy="12" r="2">
+<animate attributename="opacity" dur="2s" repeatcount="indefinite" values="1;0.4;1"></animate>
+</circle>
+<path class="opacity-40" d="M12 10L12 4M12 14L12 20M10 12L4 12M14 12L20 12M10.5 10.5L6 6M13.5 13.5L18 18M13.5 10.5L18 6M10.5 13.5L6 18">
+<animate attributename="stroke-dasharray" dur="3s" repeatcount="indefinite" values="0,20;20,0;0,20"></animate>
+</path>
+<circle class="fill-[var(--primary-accent)]" cx="12" cy="4" r="1"></circle>
+<circle class="fill-[var(--primary-accent)]" cx="12" cy="20" r="1"></circle>
+<circle class="fill-[var(--primary-accent)]" cx="4" cy="12" r="1"></circle>
+<circle class="fill-[var(--primary-accent)]" cx="20" cy="12" r="1"></circle>
+</svg>
+<div class="absolute inset-0 bg-[var(--primary-accent)] rounded-full blur-md opacity-20 animate-pulse"></div>
+</div>
+<span class="logo-shimmer text-base font-serif-display font-black tracking-tighter uppercase text-white">Jubal Web Studio</span>
+</div></span>
+<div class="hidden md:flex items-center space-x-8">
+<a class="nav-link magnetic-target text-[9px] font-semibold tracking-[0.2em] uppercase text-white/70 hover:text-white" href="#services">Capabilities</a>
+<a class="nav-link magnetic-target text-[9px] font-semibold tracking-[0.2em] uppercase text-white/70 hover:text-white" href="#portfolio">Works</a>
+<a class="nav-link magnetic-target text-[9px] font-semibold tracking-[0.2em] uppercase text-white/70 hover:text-white" href="#faq">Inquiries</a>
+<a class="nav-link magnetic-target text-[9px] font-semibold tracking-[0.2em] uppercase text-white/70 hover:text-white" href="#contact">Journal</a>
+</div>
+</div>
+<div class="flex items-center space-x-8">
+<span class="hidden lg:block text-[9px] font-medium tracking-[0.2em] uppercase opacity-40 italic text-white">Digital Content Studio</span>
+<a class="cta-button magnetic-target text-[9px] font-bold tracking-[0.2em] uppercase text-[var(--primary-accent)] border border-[var(--primary-accent)] px-4 py-2 hover:bg-[var(--primary-accent)] hover:text-black rounded-md" href="#contact">Contact</a>
 </div>
 </div>
 </nav>
-<section class="relative min-h-screen flex flex-col justify-center items-center text-center px-4 pt-40 overflow-hidden">
-<div class="relative z-10 max-w-5xl mx-auto">
-<div class="space-y-6">
-<h1 class="-mt-20 md:mt-0 text-4xl md:text-9xl lg:text-[5rem] font-serif font-bold liquid-metallic fracture-bottom leading-loose" id="hero-main-title">
-   Websites That Work. Designs That Inspire.
+<header class="relative min-h-screen flex items-center justify-center overflow-hidden pt-12">
+<div class="absolute inset-0 hero-reveal-bg">
+<video autoplay class="hero-video-bg" loop muted playsinline id="heroVideo">
+  <source src="ff.mp4" type="video/mp4">
+</video>
+
+<script>
+  const video = document.getElementById("heroVideo");
+  video.playbackRate = 0.5; // 0.5 = half speed (slower)
+</script>
+<div class="hero-overlay"></div>
+</div>
+<div class="relative z-10 text-center px-6 max-w-7xl mx-auto hero-reveal-container">
+<div class="mb-4 overflow-hidden">
+<span class="block text-[9px] font-bold tracking-[0.5em] uppercase opacity-50 reveal-up text-white">
+                Elevating the Digital Standard
+            </span>
+</div>
+<h1 class="font-serif-display font-black text-[var(--primary-accent)] editorial-title text-3xl md:text-[6rem] xl:text-[4.7rem] uppercase mb-10 pointer-events-none select-none flex flex-col items-center gap-y-3" id="hero-title">
+<span class="inline-block scroll-disappear" id="title-line-1">Web Design That</span>
+
+<span class="inline-block scroll-disappear whitespace-nowrap" id="title-line-2">
+Makes An Impression
+</span>
 </h1>
-</div>
-<div class="flex gap-10 justify-center items-center pt-16">
-<a href="#contact" 
-   class="group relative inline-block px-12 py-5 bg-solar/20 border-2 border-solar text-stark font-serif italic text-lg tracking-widest hover:bg-solar transition-all duration-700 rounded-full overflow-hidden">
-    
-    <span class="relative z-10">Get Started</span>
-    
-    <div class="absolute inset-0 bg-gradient-to-t from-flare/30 to-transparent translate-y-full group-hover:translate-y-0 transition-transform"></div>
+<div class="flex flex-col items-center max-w-xl mx-auto reveal-up stagger-2">
+<p class="text-base md:text-lg text-white font-light leading-relaxed mb-10 opacity-80">
+                A modern web design studio in Guyana creating high-performance websites, branding, and digital experiences for businesses in Georgetown and beyond.
+            </p>
+<div class="flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-12">
+<button class="cta-button magnetic-target bg-white text-black px-10 py-4 text-[11px] font-bold tracking-[0.3em] uppercase hover:bg-[var(--primary-accent)] shadow-xl rounded-md" onclick="location.href='#contact'">
+                    Start a Project
+                </button>
+<a class="group flex items-center space-x-4 magnetic-target" href="#portfolio">
+<span class="text-[10px] font-bold tracking-[0.3em] uppercase border-b border-white/20 pb-1 text-white">Explore Works</span>
+<span class="material-symbols-outlined text-sm transition-transform group-hover:translate-x-2 text-white">arrow_forward</span>
 </a>
 </div>
-<div class="mt-16 max-w-xl mx-auto">
-<p class="text-lg md:text-xl text-ash font-light leading-relaxed tracking-wide">
-               We design and develop high-performing websites in Guyana, the Caribbean & worldwide that look stunning, load fast, and help your business grow. </p>
-</div>
-
-</div>
-</section>
-<div class="tapered-divider"></div>
-<section class="relative py-10 bg-charcoal/80 backdrop-blur-lg border-y border-white/10 overflow-hidden">
-<div class="w-full  overflow-hidden flex whitespace-nowrap">
-<div class="flex animate-marquee-fast items-center">
-<span class="mx-16 text-ash/40 font-sans text-xs tracking-[0.5em] font-light">FULLSTACK</span>
-<span class="mx-16 text-solar font-serif italic text-xl tracking-[0.3em]">Custom Website Design</span>
-<span class="mx-16 text-ash/40 font-sans text-xs tracking-[0.5em] font-light">E-Commerce Solutions</span>
-<span class="mx-16 text-solar font-serif italic text-xl tracking-[0.3em]">UI/UX Design</span>
-<span class="mx-16 text-ash/40 font-sans text-xs tracking-[0.5em] font-light">Front-End Development</span>
-<span class="mx-16 text-solar font-serif italic text-xl tracking-[0.3em]">Back-End Development</span>
-<span class="mx-16 text-ash/40 font-sans text-xs tracking-[0.5em] font-light">Website Maintenance</span>
-<span class="mx-16 text-solar font-serif italic text-xl tracking-[0.3em]">Brand Strategy</span>
-<span class="mx-16 text-ash/40 font-sans text-xs tracking-[0.5em] font-light">Consulting & Support</span>
-</div>
-<span class="mx-16 text-ash/40 font-sans text-xs tracking-[0.5em] font-light">FULLSTACK</span>
-<span class="mx-16 text-solar font-serif italic text-xl tracking-[0.3em]">Custom Website Design</span>
-<span class="mx-16 text-ash/40 font-sans text-xs tracking-[0.5em] font-light">E-Commerce Solutions</span>
-<span class="mx-16 text-solar font-serif italic text-xl tracking-[0.3em]">UI/UX Design</span>
-<span class="mx-16 text-ash/40 font-sans text-xs tracking-[0.5em] font-light">Front-End Development</span>
-<span class="mx-16 text-solar font-serif italic text-xl tracking-[0.3em]">Back-End Development</span>
-<span class="mx-16 text-ash/40 font-sans text-xs tracking-[0.5em] font-light">Website Maintenance</span>
-<span class="mx-16 text-solar font-serif italic text-xl tracking-[0.3em]">Brand Strategy</span>
-<span class="mx-16 text-ash/40 font-sans text-xs tracking-[0.5em] font-light">Consulting & Support</span>
 </div>
 </div>
-</section>
-<div class="tapered-divider"></div>
-<section class="relative py-28 overflow-hidden" id="philosophy-section">
-<div class="max-w-4xl mx-auto px-8 relative z-10 text-center">
-<h2 class="text-flare font-sans text-[16px] tracking-[0.6em] uppercase mb-16">Our Approach</h2>
-<div class="data-capsule p-16 rounded-none group hover:scale-[1.01] transition-all duration-700">
-<p class="text-2xl md:text-3xl font-serif leading-relaxed text-stark font-light italic">
-                We believe great websites should do more than look beautiful — they should serve your customers and 
-                support your goals. Our work blends thoughtful design, clean code, and strategic thinking to create digital 
-                experiences that are intuitive, engaging, and results-driven... S.Salim</p>
-<div class="mt-12 h-px w-20 bg-solar/40 mx-auto"></div>
-</div>
-</div>
-</section>
-<div class="tapered-divider"></div>
-<section class="relative py-32 px-4" id="service">
+</header>
+<div class="section-separator"></div>
+<section class="py-40 px-8 bg-[var(--dark-charcoal)]" id="services">
 <div class="max-w-7xl mx-auto">
-<div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
-<div class="w-full lg:w-1/3 data-capsule p-10 rounded-none animate-refraction lg:mt-20 border-l-4 border-solar">
-<span class="material-symbols-outlined text-4xl text-solar mb-8 block font-extralight">waves</span>
-<h3 class="text-3xl font-serif text-stark mb-6">Custom Website Design</h3>
-<p class="text-ash text-sm leading-loose">We design modern, responsive websites tailored to your brand and audience — built to engage, inform, and convert.</p>
+<div class="flex flex-col items-center text-center mb-32 reveal-up">
+<h2 class="text-[10px] font-bold tracking-[0.4em] uppercase opacity-40 mb-6 text-white">Expertise</h2>
+<div class="max-w-4xl">
+<h3 class="font-serif-display text-4xl md:text-6xl leading-tight italic text-white"><span class="expertise-word inline-block opacity-0 scale-95 transition-all duration-[2000ms] ease-out">Merging</span> <span class="expertise-word inline-block opacity-0 scale-95 transition-all duration-[2000ms] ease-out">sensory</span> <span class="expertise-word inline-block opacity-0 scale-95 transition-all duration-[2000ms] ease-out">aesthetics</span> <span class="expertise-word inline-block opacity-0 scale-95 transition-all duration-[2000ms] ease-out">with</span> <span class="expertise-word inline-block opacity-0 scale-95 transition-all duration-[2000ms] ease-out">digital</span> <span class="expertise-word inline-block opacity-0 scale-95 transition-all duration-[2000ms] ease-out">precision.</span></h3>
 </div>
-<div class="w-full lg:w-[40%] data-capsule p-12 rounded-none animate-refraction border-y-4 border-flare" style="animation-delay: 2s">
-<span class="material-symbols-outlined text-5xl text-solar mb-8 block font-extralight">auto_fix_high</span>
-<h3 class="text-4xl font-serif text-stark mb-6 italic">Brand Strategy & Identity</h3>
-<p class="text-ash text-base leading-loose">From logos to visual systems, we help you define a clear and memorable brand presence that connects with your audience.</p>
 </div>
-<div class="w-full lg:w-1/3 data-capsule p-10 rounded-none animate-refraction lg:-mt-20 border-r-4 border-solar" style="animation-delay: 4s">
-<span class="material-symbols-outlined text-4xl text-flare mb-8 block font-extralight">air</span>
-<h3 class="text-3xl font-serif text-stark mb-6">Interactive & Motion Design</h3>
-<p class="text-ash text-sm leading-loose"> Add life to your website with smooth animations, micro-interactions, and visual storytelling that enhance user experience.</p>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="service-card magnetic-target p-12 group reveal-up stagger-1 rounded-lg">
+<div class="service-card-bg" 
+style="background-image:url('https://images.unsplash.com/photo-1611078489935-0cb964de46d6?w=600&auto=format&fit=crop&q=60');
+background-size:cover;
+background-position:center;
+filter:brightness(1.2);">
 </div>
+
+
+<span class="glow-text text-[10px] font-bold tracking-[0.3em] uppercase text-[var(--primary-accent)] mb-10 block">01 / Design</span>
+<h4 class="font-serif-display text-4xl mb-6 text-white">Web Design</h4>
+<p class="text-white/70 font-light leading-relaxed mb-12 text-lg"><span class="word-reveal flex flex-wrap gap-x-[0.3em]"><span class="word opacity-0 translate-y-4 transition-all duration-700">Modern ,</span> <span class="word opacity-0 translate-y-4 transition-all duration-700">visually </span> <span class="word opacity-0 translate-y-4 transition-all duration-700">striking </span> <span class="word opacity-0 translate-y-4 transition-all duration-700">website </span> <span class="word opacity-0 translate-y-4 transition-all duration-700">designs </span> <span class="word opacity-0 translate-y-4 transition-all duration-700">built </span> <span class="word opacity-0 translate-y-4 transition-all duration-700">to </span> <span class="word opacity-0 translate-y-4 transition-all duration-700">capture </span> <span class="word opacity-0 translate-y-4 transition-all duration-700">attention </span> <span class="word opacity-0 translate-y-4 transition-all duration-700">a</span> <span class="word opacity-0 translate-y-4 transition-all duration-700">and </span> <span class="word opacity-0 translate-y-4 transition-all duration-700">represent .</span></span></p>
+<div class="h-px w-0 group-hover:w-full bg-[var(--primary-accent)] transition-all duration-1000"></div>
+</div>
+<div class="service-card magnetic-target p-12 group reveal-up stagger-2 rounded-lg">
+<div class="service-card-bg" 
+style="background-image:url('https://images.unsplash.com/photo-1611078489935-0cb964de46d6?w=600&auto=format&fit=crop&q=60');
+background-size:cover;
+background-position:center;
+filter:brightness(1.2);">
+</div>
+
+<span class="glow-text text-[10px] font-bold tracking-[0.3em] uppercase text-[var(--primary-accent)] mb-10 block">02 / PRODUCT</span>
+<h4 class="font-serif-display text-4xl mb-6 text-white">Experience</h4>
+<p class="text-white/70 font-light leading-relaxed mb-12 text-lg"><span class="word-reveal flex flex-wrap gap-x-[0.3em]"><span class="word opacity-0 translate-y-4 transition-all duration-700">Crafting</span> <span class="word opacity-0 translate-y-4 transition-all duration-700">fluid</span> <span class="word opacity-0 translate-y-4 transition-all duration-700">digital</span> <span class="word opacity-0 translate-y-4 transition-all duration-700">interfaces</span> <span class="word opacity-0 translate-y-4 transition-all duration-700">that</span> <span class="word opacity-0 translate-y-4 transition-all duration-700">feel</span> <span class="word opacity-0 translate-y-4 transition-all duration-700">like</span> <span class="word opacity-0 translate-y-4 transition-all duration-700">turning</span> <span class="word opacity-0 translate-y-4 transition-all duration-700">the</span> <span class="word opacity-0 translate-y-4 transition-all duration-700">pages</span> <span class="word opacity-0 translate-y-4 transition-all duration-700">of</span> <span class="word opacity-0 translate-y-4 transition-all duration-700">a</span> <span class="word opacity-0 translate-y-4 transition-all duration-700">high-end</span> <span class="word opacity-0 translate-y-4 transition-all duration-700">magazine.</span></span></p>
+<div class="h-px w-0 group-hover:w-full bg-[var(--primary-accent)] transition-all duration-1000"></div>
+</div>
+<div class="service-card magnetic-target p-12 group reveal-up stagger-3 rounded-lg">
+<div class="service-card-bg" 
+style="background-image:url('https://images.unsplash.com/photo-1611078489935-0cb964de46d6?w=600&auto=format&fit=crop&q=60');
+background-size:cover;
+background-position:center;
+filter:brightness(1.2);">
+</div>
+
+<span class="glow-text text-[10px] font-bold tracking-[0.3em] uppercase text-[var(--primary-accent)] mb-10 block">03 / STORY</span>
+<h4 class="font-serif-display text-4xl mb-6 text-white">Narrative</h4>
+<p class="text-white/70 font-light leading-relaxed mb-12 text-lg"><span class="word-reveal flex flex-wrap gap-x-[0.3em]"><span class="word opacity-0 translate-y-4 transition-all duration-700">Curated</span> <span class="word opacity-0 translate-y-4 transition-all duration-700">content</span> <span class="word opacity-0 translate-y-4 transition-all duration-700">strategy</span> <span class="word opacity-0 translate-y-4 transition-all duration-700">that</span> <span class="word opacity-0 translate-y-4 transition-all duration-700">translates</span> <span class="word opacity-0 translate-y-4 transition-all duration-700">corporate</span> <span class="word opacity-0 translate-y-4 transition-all duration-700">values</span> <span class="word opacity-0 translate-y-4 transition-all duration-700">into</span> <span class="word opacity-0 translate-y-4 transition-all duration-700">emotional</span> <span class="word opacity-0 translate-y-4 transition-all duration-700">connection.</span></span></p>
+<div class="h-px w-0 group-hover:w-full bg-[var(--primary-accent)] transition-all duration-1000"></div>
+</div>
+</div>
+</div>
+
+
+
+</section>
+<div class="section-separator"></div>
+<section class="py-12 bg-[var(--forest-green)] overflow-hidden border-y border-white/5 flex flex-col space-y-8" id="marquee-section">
+<div class="scroll-line-left whitespace-nowrap flex items-center select-none">
+<div class="flex items-center space-x-12 pr-12">
+<span class="text-3xl md:text-2xl font-bold uppercase tracking-tight text-white opacity-80">React.js</span>
+<span class="w-3 h-3 bg-[var(--primary-accent)] rounded-full"></span>
+<span class="text-2xl md:text-1xl font-bold uppercase tracking-tighter text-white opacity-40">Next.js</span>
+<span class="w-3 h-3 bg-[var(--primary-accent)] rounded-full"></span>
+<span class="text-5xl md:text-3xl font-bold uppercase tracking-widest text-white opacity-90">GSAP</span>
+<span class="w-3 h-3 bg-[var(--primary-accent)] rounded-full"></span>
+<span class="text-3xl md:text-2xl font-bold uppercase tracking-normal text-white opacity-60">Three.js</span>
+<span class="w-3 h-3 bg-[var(--primary-accent)] rounded-full"></span>
+<span class="text-4xl md:text-1xl font-bold uppercase tracking-tight text-white opacity-80">Framer</span>
+<span class="w-3 h-3 bg-[var(--primary-accent)] rounded-full"></span>
+<span class="text-2xl md:text-2xl font-bold uppercase tracking-tighter text-white opacity-40">Node.js</span>
+<span class="w-3 h-3 bg-[var(--primary-accent)] rounded-full"></span>
+<span class="text-5xl md:text-3xl font-bold uppercase tracking-widest text-white opacity-90">Tailwind</span>
+</div>
+<div class="flex items-center space-x-12 pr-12">
+<span class="text-4xl md:text-2xl font-bold uppercase tracking-tight text-white opacity-80">React.js</span>
+<span class="w-3 h-3 bg-[var(--primary-accent)] rounded-full"></span>
+<span class="text-2xl md:text-1xl font-bold uppercase tracking-tighter text-white opacity-40">Next.js</span>
+<span class="w-3 h-3 bg-[var(--primary-accent)] rounded-full"></span>
+<span class="text-5xl md:text-3xl font-bold uppercase tracking-widest text-white opacity-90">GSAP</span>
+<span class="w-3 h-3 bg-[var(--primary-accent)] rounded-full"></span>
+<span class="text-3xl md:text-2xl font-bold uppercase tracking-normal text-white opacity-60">Three.js</span>
+</div>
+</div>
+<div class="scroll-line-right whitespace-nowrap flex items-center select-none">
+<div class="flex items-center space-x-12 pr-12">
+<span class="text-2xl md:text-2xl font-bold uppercase tracking-tighter text-white opacity-40">TypeScript</span>
+<span class="w-3 h-3 bg-[var(--primary-accent)] rounded-full"></span>
+<span class="text-5xl md:text-4xl font-bold uppercase tracking-widest text-white opacity-90">Design</span>
+<span class="w-3 h-3 bg-[var(--primary-accent)] rounded-full"></span>
+<span class="text-4xl md:text-3xl font-bold uppercase tracking-tight text-white opacity-80">Motion</span>
+<span class="w-3 h-3 bg-[var(--primary-accent)] rounded-full"></span>
+<span class="text-3xl md:text-2xl font-bold uppercase tracking-normal text-white opacity-60">WebGL</span>
+<span class="w-3 h-3 bg-[var(--primary-accent)] rounded-full"></span>
+<span class="text-2xl md:text-1xl font-bold uppercase tracking-tighter text-white opacity-40">Strategy</span>
+<span class="w-3 h-3 bg-[var(--primary-accent)] rounded-full"></span>
+<span class="text-5xl md:text-3xl font-bold uppercase tracking-widest text-white opacity-90">Story</span>
+<span class="w-3 h-3 bg-[var(--primary-accent)] rounded-full"></span>
+<span class="text-4xl md:text-4xl font-bold uppercase tracking-tight text-white opacity-80">Identity</span>
+</div>
+<div class="flex items-center space-x-12 pr-12">
+<span class="text-2xl md:text-2xl font-bold uppercase tracking-tighter text-white opacity-40">TypeScript</span>
+<span class="w-3 h-3 bg-[var(--primary-accent)] rounded-full"></span>
+<span class="text-5xl md:text-3xl font-bold uppercase tracking-widest text-white opacity-90">Design</span>
+<span class="w-3 h-3 bg-[var(--primary-accent)] rounded-full"></span>
+<span class="text-4xl md:text-3xl font-bold uppercase tracking-tight text-white opacity-80">Motion</span>
+<span class="w-3 h-3 bg-[var(--primary-accent)] rounded-full"></span>
+<span class="text-3xl md:text-2xl font-bold uppercase tracking-normal text-white opacity-60">WebGL</span>
 </div>
 </div>
 </section>
-
-
-<div class="tapered-divider"></div>
-<section class="relative py-28" id="our-work">
-<div class="max-w-7xl mx-auto px-8">
-<div class="text-center mb-32">
-<h2 class="text-4xl md:text-7xl font-serif text-stark tracking-tight italic">Our Work</h2>
+<div class="section-separator"></div>
+<section class="py-40 px-8 bg-[var(--dark-charcoal)]" id="portfolio">
+<div class="max-w-7xl mx-auto">
+<div class="mb-32 reveal-up">
+<h2 class="text-[10px] font-bold tracking-[0.4em] uppercase opacity-40 mb-6 text-white">Portfolio</h2>
+<h3 class="font-serif-display text-4xl md:text-6xl text-white">Selected <span class="italic text-[var(--primary-accent)]">Works</span></h3>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-32 items-center">
-<div class="group relative">
-<div class="warped-frame h-[500px] w-full bg-solar/10 relative">
-<img alt="Project 1" class="w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-[2s] "src="screencapture-127-0-0-1-5500-2026-02-09-08_48_08.png"/>
-<div class="absolute inset-0 bg-gradient-to-b from-transparent to-pitch/90"></div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-8">
+<!-- Project 01 -->
+<div class="project-3d-card scroll-tilt-entry group cursor-none">
+<div class="project-3d-card-inner relative">
+<div class="project-3d-image-wrap aspect-[4/5] rounded-lg overflow-hidden bg-neutral-900 mb-8">
+<img alt="Tech Minds" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfNdIT7TJu35HUSuB4xLCQIR6RI422DK2YgNPN3N9LxOnnuHi9ipc38S6H932IaSPpU_-9SVJLgadiam0xWM4NVdB9-Og8XW67vFsCs9yyb1meMI6WLZ_bkya2jrh1-a7xiHGCdH40Xm8ZrjCZsQV5hTLlxGiJGT7BUYE9MuOrcWSLxR_M5lhOBCwxjDnwyUDoSmMnal1mVOzf-5vch6LZoQBXu0VyTe4Tzmyjtnbp0isUbCpOdFJWSaQKjHKnTdrY8KHan3u97g"/>
 </div>
-<div class="absolute -bottom-10 -right-8 data-capsule p-10 rounded-none max-w-sm">
-<h3 class="text-2xl font-serif text-stark mb-4">Project 1</h3>
-<p class="text-ash text-xs tracking-widest leading-relaxed">A modern, immersive website designed for a premium audio brand focused on performance and elegance.</p>
-</div>
-</div>
-<div class="group relative md:mt-40">
-<div class="warped-frame h-[400px] w-full bg-charcoal relative">
-<img alt="Project 2" class="w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-[2s] " src="https://images.unsplash.com/photo-1690264695884-f62022341c8f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fG1vYmlsZSUyMHBob25lJTIwd2l0aCUyMHdlYnNpdGUlMjBvcGVufGVufDB8fDB8fHww"/>
-<div class="absolute inset-0 bg-gradient-to-b from-transparent to-pitch/90"></div>
-</div>
-<div class="absolute -top-10 -left-8 data-capsule p-8 rounded-none max-w-xs">
-<h3 class="text-xl font-serif text-stark mb-4 italic">Project 2</h3>
-<p class="text-ash text-xs tracking-widest leading-relaxed">A clean, structured digital showcase highlighting contemporary architectural design and innovation.</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<div class="tapered-divider"></div>
-<section class="relative py-32 bg-solar/10 border-y border-white/10">
-<div class="max-w-7xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-<div>
-<h2 class="text-5xl font-serif text-stark mb-12">OUR <span class="italic text-flare">TECH STACK</span></h2>
-<div class="space-y-10 border-l-2 border-flare pl-10">
-<div class="flex items-center gap-6 group">
-<div class="w-3 h-3 bg-flare group-hover:scale-150 transition-all"></div>
-<p class="text-ash text-lg font-sans tracking-wide">Strategic website planning</p>
-</div>
-<div class="flex items-center gap-6 group">
-<div class="w-3 h-3 bg-solar group-hover:scale-150 transition-all"></div>
-<p class="text-ash text-lg font-sans tracking-wide">Conversion-focused design</p>
-</div>
-<div class="flex items-center gap-6 group">
-<div class="w-3 h-3 bg-flare group-hover:scale-150 transition-all"></div>
-<p class="text-ash text-lg font-sans tracking-wide">Scalable development</p>
-</div>
-<div class="flex items-center gap-6 group">
-<div class="w-3 h-3 bg-solar group-hover:scale-150 transition-all"></div>
-<p class="text-ash text-lg font-sans tracking-wide">E-commerce integration</p>
-</div>
-<div class="flex items-center gap-6 group">
-<div class="w-3 h-3 bg-solar group-hover:scale-150 transition-all"></div>
-<p class="text-ash text-lg font-sans tracking-wide">AI Chatbot Integrations</p>
-</div>
-<div class="flex items-center gap-6 group">
-<div class="w-3 h-3 bg-solar group-hover:scale-150 transition-all"></div>
-<p class="text-ash text-lg font-sans tracking-wide">Web Hosting & Domains</p>
-</div>
-<div class="flex items-center gap-6 group">
-<div class="w-3 h-3 bg-solar group-hover:scale-150 transition-all"></div>
-<p class="text-ash text-lg font-sans tracking-wide">Ongoing support & optimization</p>
-</div>
-</div>
-</div>
-<div class="grid grid-cols-3 gap-6">
-<div class="data-capsule aspect-square flex items-center justify-center rounded-none"><i class="fa-brands fa-react text-4xl text-ash"></i></div>
-<div class="data-capsule aspect-square flex items-center justify-center rounded-none"><i class="fa-brands fa-vuejs text-4xl text-solar"></i></div>
-<div class="data-capsule aspect-square flex items-center justify-center rounded-none"><i class="fa-brands fa-js text-4xl text-flare"></i></div>
-<div class="data-capsule aspect-square flex items-center justify-center rounded-none"><i class="fa-brands fa-node text-4xl text-ash"></i></div>
-<div class="data-capsule aspect-square flex items-center justify-center rounded-none"><i class="fa-brands fa-figma text-4xl text-solar"></i></div>
-<div class="data-capsule aspect-square flex items-center justify-center rounded-none"><svg class="w-10 h-10 text-ash" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 19h20L12 2zm0 3l7.53 13H4.47L12 5z"></path></svg></div>
-</div>
-</div>
-</section>
-<div class="tapered-divider"></div>
-<section class="relative py-28" id="price">
-<div class="max-w-7xl mx-auto px-8">
-<div class="text-center mb-24">
-<h2 class="text-5xl font-serif text-stark italic">Choose Your Package</h2>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-12 items-end">
-<div class="data-capsule p-10 rounded-none flex flex-col items-center text-center">
-<span class="text-ash font-sans text-[10px] tracking-widest uppercase mb-6">Standard</span>
-<div class="text-4xl font-serif text-stark mb-8">us$ 300</div>
-<p class="text-ash text-xs mb-10 leading-relaxed">Perfect for startups and small businesses needing a professional online presence.
-
-Includes:Up to 5 pages
-
-Responsive design
-
-Basic SEO setup
-
-Contact form integration</p>
-<a href="#contact" class="block w-full py-4 rounded-full border-2 border-ash text-ash hover:bg-ash hover:text-pitch transition-all uppercase tracking-tighter font-bold text-center">
-  Engage
+<div class="project-3d-content space-y-4">
+<span class="text-[9px] font-bold tracking-[0.3em] uppercase text-[var(--primary-accent)]">Direction / 2024</span>
+<h4 class="text-3xl font-serif-display text-white">Tech Minds</h4>
+<p class="text-white/40 text-sm font-light leading-relaxed line-clamp-2">A global digital transformation focusing on the sensory nature of software interfaces.</p>
+<a class="inline-flex items-center space-x-3 text-[9px] font-bold tracking-[0.2em] uppercase text-white border-b border-white/20 pb-1 hover:border-[var(--primary-accent)] transition-colors" href="#">
+<span>Explore Case</span>
+<span class="material-symbols-outlined text-xs">east</span>
 </a>
 </div>
-<div class="data-capsule p-14 rounded-none flex flex-col items-center text-center scale-105 border-4 border-flare shadow-[0_0_50px_rgba(255,255,0,0.2)]">
-<div class="px-6 py-2 bg-flare/10 border border-flare rounded-none text-flare text-[10px] tracking-widest uppercase font-bold mb-10">Aurora</div>
-<div class="text-6xl font-serif text-stark mb-8 italic">us$ 800</div>
-<p class="text-stark text-sm mb-12 leading-relaxed italic">Ideal for growing brands that need advanced design and functionality.
-
-Includes:
-
-Custom design system
-
-Motion & interaction design
-
-CMS integration
-
-E-commerce capability
-
-SEO optimization</p>
-<a href="#contact" 
-   class="block w-full py-5 rounded-full bg-solar text-stark font-serif italic text-lg shadow-lg hover:bg-flare hover:text-pitch transition-all uppercase text-center">
-   Ignite Core
-</a></div>
-<div class="data-capsule p-10 rounded-none flex flex-col items-center text-center">
-<span class="text-ash font-sans text-[10px] tracking-widest uppercase mb-6">Enterprise</span>
-<div class="text-4xl font-serif text-stark mb-8">us$ 1500</div>
-<p class="text-ash text-xs mb-10 leading-relaxed">For large-scale businesses and complex digital platforms.
-
-Includes:
-
-Full brand & UX strategy
-
-Advanced integrations
-
-Custom backend solutions
-
-Performance optimization
-
-Ongoing support</p>
-<a href="#contact"
-   class="block w-full py-4 rounded-full border-2 border-ash text-ash hover:bg-ash hover:text-pitch transition-all uppercase tracking-tighter font-bold text-center">
-   Engage
-</a></div>
 </div>
 </div>
-</section>
-<div class="tapered-divider"></div>
-<section class="py-32 bg-pitch/90">
-<div class="max-w-4xl mx-auto px-8">
-<div class="flex flex-col md:flex-row gap-20">
-<div class="md:w-1/3">
-<h2 class="text-3xl font-serif text-stark mb-4 italic">Frequently Asked Questions</h2>
+<!-- Project 02 -->
+<div class="project-3d-card scroll-tilt-entry group cursor-none lg:mt-24">
+<div class="project-3d-card-inner relative">
+<div class="project-3d-image-wrap aspect-[4/5] rounded-lg overflow-hidden bg-neutral-900 mb-8">
+<img alt="Aesthetic Lab" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgfrUkia1KIw_tBCCvwGXsatDtJ_Vibj4Qu7qcmGFkp1bdSjzYMYtLhuyh9Inj9TGNhJAVZUVsDxKRbVc7x29SuUhUm4WwFofze8ZiR4xD4PQnTuhoyNKZEOePyzd2uWXZQ5zBT5TwzUwwq5CqZtA8bbkID5WKY_xcxE-wlzuWQRjFRiKMdxQb8hSplYRRCkFMY63RQJWfNT9miX-22aFp8LzWcMPK6J8rPU8Te7rNpSefpPg6xVqFO8xBSt--M4GnHMhnEkb6RA"/>
 </div>
-<div class="md:w-2/3 space-y-12">
-<details class="group cursor-pointer">
-<summary class="flex justify-between items-center text-stark font-sans text-xs tracking-widest uppercase hover:text-flare transition-colors list-none">
-                        What is your development process?
-                        <span class="material-symbols-outlined text-solar group-open:rotate-180 transition-transform">expand_more</span>
-</summary>
-<p class="mt-8 text-ash text-sm leading-relaxed font-light pl-6 border-l-2 border-flare italic">
-                        We begin with discovery and planning, move into design and development, and finish with testing and launch. You’re involved at every key stage.</p>
-</details>
-<div class="h-px bg-white/10 w-full"></div>
-<details class="group cursor-pointer">
-<summary class="flex justify-between items-center text-stark font-sans text-xs tracking-widest uppercase hover:text-flare transition-colors list-none">
-                        Do you provide training after launch?
-                        <span class="material-symbols-outlined text-solar group-open:rotate-180 transition-transform">expand_more</span>
-</summary>
-<p class="mt-8 text-ash text-sm leading-relaxed font-light pl-6 border-l-2 border-flare italic">
-                        Yes. We offer onboarding sessions and documentation to help your team confidently manage your new website. </p>
-</details>
-<div class="h-px bg-white/10 w-full"></div>
-<details class="group cursor-pointer">
-<summary class="flex justify-between items-center text-stark font-sans text-xs tracking-widest uppercase hover:text-flare transition-colors list-none">
-                        How long does a project take?
-                        <span class="material-symbols-outlined text-solar group-open:rotate-180 transition-transform">expand_more</span>
-</summary>
-<p class="mt-8 text-ash text-sm leading-relaxed font-light pl-6 border-l-2 border-flare italic">
-                        Most projects take between 2–12 weeks depending on complexity and scope.</p>
-</details>
+<div class="project-3d-content space-y-4">
+<span class="text-[9px] font-bold tracking-[0.3em] uppercase text-[var(--primary-accent)]">Design / 2023</span>
+<h4 class="text-3xl font-serif-display text-white">Aesthetic Lab</h4>
+<p class="text-white/40 text-sm font-light leading-relaxed line-clamp-2">Crafting high-fidelity prototypes for futuristic fashion platforms.</p>
+<a class="inline-flex items-center space-x-3 text-[9px] font-bold tracking-[0.2em] uppercase text-white border-b border-white/20 pb-1 hover:border-[var(--primary-accent)] transition-colors" href="#">
+<span>Explore Case</span>
+<span class="material-symbols-outlined text-xs">east</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Project 03 -->
+<div class="project-3d-card scroll-tilt-entry group cursor-none">
+<div class="project-3d-card-inner relative">
+<div class="project-3d-image-wrap aspect-[4/5] rounded-lg overflow-hidden bg-neutral-900 mb-8">
+<img alt="Neural Studio" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFtca04osCZcPc7WgEZe16XoXqbTQaM_46V_AApdfERuoFnVMImIhjTFyKxQIx18hSsjE8jnhyhdi5yfXn7GuRK8bbwcHiV75ANS0VM6ym0gSkTuYSoAGGYJvhaE92JPqHlrIzDgZO0_pWQQdfPRXRzDLNTreLV1l0WiUuslOjrcmCd06XGd5R96BETRMBaoWO7vhyjwf5_w3MGcaDTYCnXQPVJMt-mZHiJxKXaziteWe_0NkHPAIj43BJ9OSNKtU9k5jyvifQfA"/>
+</div>
+<div class="project-3d-content space-y-4">
+<span class="text-[9px] font-bold tracking-[0.3em] uppercase text-[var(--primary-accent)]">Strategy / 2024</span>
+<h4 class="text-3xl font-serif-display text-white">Neural Studio</h4>
+<p class="text-white/40 text-sm font-light leading-relaxed line-clamp-2">Developing AI-driven editorial systems for luxury publications.</p>
+<a class="inline-flex items-center space-x-3 text-[9px] font-bold tracking-[0.2em] uppercase text-white border-b border-white/20 pb-1 hover:border-[var(--primary-accent)] transition-colors" href="#">
+<span>Explore Case</span>
+<span class="material-symbols-outlined text-xs">east</span>
+</a>
+</div>
+</div>
 </div>
 </div>
 </div>
 </section>
-<div class="tapered-divider"></div>
 
+<div class="section-separator"></div>
 
-<section class="relative py-24 px-8 overflow-hidden" id="contact">
-<div class="max-w-4xl mx-auto">
-<div class="text-center mb-12">
-<h2 class="text-6xl md:text-8xl font-serif text-stark mb-8 italic">Lets Talk<span class="text-flare">.</span></h2>
-<p class="text-ash font-sans text-xs tracking-[0.5em] uppercase">Tell us about your project and we’ll get back to you within 24 hours..</p>
+<section class="py-52 px-8 bg-black text-white overflow-hidden relative" id="testimonial-section">
+<div class="max-w-5xl mx-auto text-center relative z-10">
+<div class="testimonial-zoom opacity-100 transform scale-100" id="testimonial-content-wrapper">
+<span class="material-symbols-outlined text-7xl text-[var(--primary-accent)] mb-16 font-thin">format_quote</span>
+<blockquote class="text-4xl md:text-6xl font-serif-display leading-[1.2] mb-20 italic font-light tracking-tight text-white">
+                "The website completely transformed how our business looks online. It's fast, modern, and our customers can <span class="text-[var(--primary-accent)]">finally </span> find us easily on Google."
+            </blockquote>
+<div class="flex flex-col items-center">
+<p class="text-[11px] font-bold tracking-[0.5em] uppercase mb-4 text-white">Michael </p>
+<div class="w-12 h-px bg-white/20 mb-4"></div>
+<p class="text-[10px] font-semibold tracking-[0.2em] uppercase text-[var(--primary-accent)]">Business Owner</p>
 </div>
-<div class="data-capsule p-10 md:p-16 rounded-none border-4 border-solar max-w-3xl mx-auto">
+</div>
+</div>
+</section>
+
+<div class="section-separator"></div>
+
+<div class="relative bg-[var(--dark-charcoal)] pt-[12vh]" id="faq-container">
+<section id="faq" class="py-24">
+<div class="max-w-4xl mx-auto text-center w-full px-8 faq-container-spacer">
+<div class="mb-6 perspective-container">
+<div id="faq-header-reveal">
+<h2 class="text-3xl md:text-4xl font-serif-display font-black text-white leading-tight uppercase mb-8">
+Common <span class="text-[var(--primary-accent)]">Inquiries</span>
+</h2>
+</div>
+</div>
+<div class="reveal-up text-left">
+<div class="space-y-2">
+<details class="faq-item group">
+<summary class="magnetic-target">
+<span class="text-lg md:text-xl font-medium tracking-tight text-white">How much does a website cost in Guyana?</span>
+<span class="material-symbols-outlined icon-plus text-2xl font-light text-[var(--primary-accent)]">add</span>
+</summary>
+<div class="faq-content">
+<p class="text-white/60 font-light text-lg leading-relaxed">
+                                Website pricing depends on the size and features required. Most business websites range from simple informational sites to more advanced custom solutions. We provide clear quotes based on your goals and the functionality your business needs.
+                            </p>
+</div>
+</details>
+<details class="faq-item group">
+<summary class="magnetic-target">
+<span class="text-lg md:text-xl font-medium tracking-tight text-white">How long does it take to build a website?</span>
+<span class="material-symbols-outlined icon-plus text-2xl font-light text-[var(--primary-accent)]">add</span>
+</summary>
+<div class="faq-content">
+<p class="text-white/60 font-light text-lg leading-relaxed">
+                                Most websites take between 2 to 6 weeks to design and launch depending on the project scope, content availability, and features required. </p>
+</div>
+</details>
+<details class="faq-item group">
+<summary class="magnetic-target">
+<span class="text-lg md:text-xl font-medium tracking-tight text-white">Do you provide website maintenance?</span>
+<span class="material-symbols-outlined icon-plus text-2xl font-light text-[var(--primary-accent)]">add</span>
+</summary>
+<div class="faq-content">
+<p class="text-white/60 font-light text-lg leading-relaxed">
+                               Yes. We offer ongoing website maintenance, updates, and performance monitoring to ensure your website stays secure, fast, and up to date.
+</p>
+</div>
+</details>
+<details class="faq-item group">
+<summary class="magnetic-target">
+<span class="text-lg md:text-xl font-medium tracking-tight text-white">Can you redesign my existing website?</span>
+<span class="material-symbols-outlined icon-plus text-2xl font-light text-[var(--primary-accent)]">add</span>
+</summary>
+<div class="faq-content">
+<p class="text-white/60 font-light text-lg leading-relaxed">
+                              Absolutely. If your current website looks outdated or performs poorly, we can redesign it with a modern layout, improved speed, and better user experience.
+ </p>
+</div>
+</details>
+</div>
+</div>
+</div>
+</section>
+
+
+<div class="section-separator relative z-20"></div>
+<section class="py-40 px-8 bg-[var(--dark-charcoal)] relative z-20" id="contact">
+<div class="max-w-7xl mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
+<div class="reveal-up text-center lg:text-left">
+<h2 class="text-4xl md:text-5xl font-serif-display font-black text-white leading-tight uppercase mb-12">
+                        Let's<br/><span class="text-[var(--primary-accent)]">Connect</span>
+</h2>
+<p class="text-lg text-white/60 font-light leading-relaxed max-w-sm mx-auto lg:mx-0">
+                        Have a vision that needs a refined digital touch? Reach out and let's create something meaningful together.
+                    </p>
+</div>
+<div class="reveal-up stagger-1 mx-auto lg:mx-0 w-full max-w-lg md:px-0">
 <form class="space-y-12">
-
-<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-
-<div class="space-y-2 border-b-2 border-flare pb-4">
-<label class="text-[10px] text-flare uppercase tracking-[0.3em] font-bold">
-Name / Company
-</label>
-<input 
-  name="name"
-  required
-  class="w-full bg-transparent border-none text-stark placeholder-ash/20 focus:ring-0 p-0 text-xl font-serif italic" 
-  placeholder="John Doe" 
-  type="text"/>
+<div class="floating-label-group">
+<input id="name" name="name" placeholder=" " required="" type="text"/>
+<label for="name">Name</label>
 </div>
-
-<div class="space-y-2 border-b-2 border-flare pb-4">
-<label class="text-[10px] text-flare uppercase tracking-[0.3em] font-bold">
-I want to
-</label>
-<select 
-  name="service"
-  required
-  class="w-full bg-transparent border-none text-solar focus:ring-0 p-0 text-xl font-serif italic appearance-none cursor-pointer">
-  <option value="Get a website built">Get a website built</option>
-  <option value="Repair and upgrade my current website">Repair and upgrade my current website</option>
-  <option value="Just ask a question">Just ask a question</option>
-</select>
+<div class="floating-label-group">
+<input id="email" name="email" placeholder=" " required="" type="email"/>
+<label for="email">Email</label>
 </div>
-
-<div class="md:col-span-2 space-y-2 border-b-2 border-flare pb-4">
-<label class="text-[10px] text-flare uppercase tracking-[0.3em] font-bold">
-Email
-</label>
-<input 
-  name="email"
-  required
-  class="w-full bg-transparent border-none text-stark placeholder-ash/20 focus:ring-0 p-0 text-xl font-serif italic" 
-  placeholder="someone@gmail.com" 
-  type="email"/>
+<div class="floating-label-group">
+<textarea id="message" name="message" placeholder=" " required="" rows="4"></textarea>
+<label for="message">Message</label>
 </div>
-
-<div class="md:col-span-2 space-y-2 border-b-2 border-flare pb-4">
-<label class="text-[10px] text-flare uppercase tracking-[0.3em] font-bold">
-Project Details
-</label>
-<textarea 
-  name="message"
-  required
-  class="w-full bg-transparent border-none text-stark placeholder-ash/20 focus:ring-0 p-0 text-xl font-serif italic h-32 resize-none" 
-  placeholder="Your Message"></textarea>
-</div>
-
-</div>
-
-<div class="flex justify-center pt-6">
-<button 
-  class="px-10 py-6 rounded-full bg-flare text-pitch font-serif italic text-xl font-bold hover:bg-solar hover:text-stark transition-all duration-500 shadow-[0_10px_20px_rgba(255,255,0,0.3)]" 
-  type="submit">
-Send Message
+<div class="pt-6 flex justify-center lg:justify-start">
+<button class="cta-button magnetic-target group relative inline-flex items-center px-12 py-5 border-2 border-white text-[11px] font-bold tracking-[0.4em] uppercase transition-all duration-500 hover:bg-[var(--primary-accent)] hover:border-[var(--primary-accent)] hover:text-black overflow-hidden rounded-md" type="submit">
+<span class="relative z-10">Send Message</span>
+<span class="material-symbols-outlined ml-4 text-sm relative z-10">arrow_right_alt</span>
 </button>
 </div>
-
 </form>
-</div>
-<div class="mt-16 flex flex-col md:flex-row justify-between items-center text-ash font-sans text-[10px] tracking-widest uppercase gap-8">
-<div class="space-y-4 text-center md:text-left">
-<p>Belle West - W.B.D- Guyana- S.A</p>
-<p>tel:592-759-8644</p>
-<p class="text-solar">safraz@jubalwebstudio.com</p>
-</div>
-<div class="flex gap-12 text-lg">
-<a class="text-ash hover:text-flare transition-all" href="#"><i class="fab fa-twitter"></i></a>
-<a class="text-ash hover:text-flare transition-all" href="#"><i class="fab fa-instagram"></i></a>
-<a class="text-ash hover:text-flare transition-all" href="#"><i class="fab fa-linkedin"></i></a>
 </div>
 </div>
 </div>
 </section>
-
-
-
-<footer class="py-6 border-t border-white/10 text-center text-ash/40 font-sans text-[8px] tracking-[0.8em] uppercase bg-pitch">
-    Jubalwebstudio // All Rights Reserved © 2026
+<footer class="py-24 px-8 bg-black text-white relative z-20">
+<div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-16 items-start text-center md:text-left">
+<div class="space-y-6">
+<span class="text-2xl font-serif-display font-black tracking-tighter uppercase block text-white"><div class="flex items-center space-x-3">
+<div class="relative w-6 h-6 flex items-center justify-center group/neuron mr-1">
+<svg class="w-full h-full fill-none stroke-[var(--primary-accent)] stroke-[1.5] overflow-visible" viewbox="0 0 24 24">
+<circle class="fill-[var(--primary-accent)]" cx="12" cy="12" r="2">
+<animate attributename="opacity" dur="2s" repeatcount="indefinite" values="1;0.4;1"></animate>
+</circle>
+<path class="opacity-40" d="M12 10L12 4M12 14L12 20M10 12L4 12M14 12L20 12M10.5 10.5L6 6M13.5 13.5L18 18M13.5 10.5L18 6M10.5 13.5L6 18">
+<animate attributename="stroke-dasharray" dur="3s" repeatcount="indefinite" values="0,20;20,0;0,20"></animate>
+</path>
+<circle class="fill-[var(--primary-accent)]" cx="12" cy="4" r="1"></circle>
+<circle class="fill-[var(--primary-accent)]" cx="12" cy="20" r="1"></circle>
+<circle class="fill-[var(--primary-accent)]" cx="4" cy="12" r="1"></circle>
+<circle class="fill-[var(--primary-accent)]" cx="20" cy="12" r="1"></circle>
+</svg>
+<div class="absolute inset-0 bg-[var(--primary-accent)] rounded-full blur-md opacity-20 animate-pulse"></div>
+</div>
+<span class="logo-shimmer text-2xl font-serif-display font-black tracking-tighter uppercase text-white">Jubal Web Studio</span>
+</div></span>
+<p class="text-[10px] font-bold tracking-[0.3em] text-white/40 uppercase leading-loose">
+                    High-End Content &amp; Digital Design<br/>
+                    Based in Georgetown, Guyana – Serving Clients Worldwide.
+                </p>
+</div>
+<div class="flex flex-col space-y-4">
+<span class="text-[10px] font-bold tracking-[0.4em] uppercase mb-4 text-white/40 italic">Socials</span>
+<a class="text-[10px] font-bold tracking-[0.3em] uppercase text-white hover:text-[var(--primary-accent)] transition-colors inline-block magnetic-target" href="#">Instagram</a>
+<a class="text-[10px] font-bold tracking-[0.3em] uppercase text-white hover:text-[var(--primary-accent)] transition-colors inline-block magnetic-target" href="#">LinkedIn</a>
+</div>
+<div class="flex flex-col md:items-end space-y-6">
+<p class="text-[10px] font-bold tracking-[0.6em] text-white/40 uppercase">© 2024-2026 JUBAL WEB STUDIO.</p>
+</div>
+</div>
 </footer>
+</div>
 <script>
-    const heroTitle = document.getElementById('hero-main-title');
-    const splitText = document.querySelector('.header-split');
-    window.addEventListener('scroll', () => {
-        const scrolled = window.scrollY;
-        const fadeStart = 100;
-        const fadeEnd = 600;
-        if (scrolled > fadeStart) {
-            let progress = (scrolled - fadeStart) / (fadeEnd - fadeStart);
-            if (progress > 1) progress = 1;
-            heroTitle.style.transform = `translateY(${progress * -50}px) scale(${1 - progress * 0.1})`;
-            heroTitle.style.opacity = 1 - progress;
-            heroTitle.style.filter = `blur(${progress * 10}px)`;
-            splitText.style.transform = `translateX(${progress * 150}px) translateY(${progress * 50}px) rotate(${progress * 15}deg)`;
-            splitText.style.opacity = 1 - progress;
-            splitText.style.filter = `blur(${progress * 5}px)`;
-        } else {
-            heroTitle.style.transform = 'translateY(0) scale(1)';
-            heroTitle.style.opacity = 1;
-            heroTitle.style.filter = 'blur(0)';
-            splitText.style.transform = 'translateX(0) translateY(0) rotate(0)';
-            splitText.style.opacity = 1;
-            splitText.style.filter = 'blur(0)';
+    window.addEventListener('DOMContentLoaded', () => {
+        const terminal = document.getElementById('terminal-output');
+        const preloaderLogo = document.getElementById('preloader-logo');
+        const preloader = document.getElementById('preloader');
+        const progressContainer = document.getElementById('progress-container');
+        const progressFill = document.getElementById('progress-fill');
+        const progressPercentage = document.getElementById('progress-percentage');
+        const lines = [
+            'INITIATING_CORE_v2...',
+            'INJECTING_ORANGE_ACCENT...',
+            'DEEP_FOREST_LAYERED...',
+            'HIGH_CONTRAST_LOADED...',
+            'RENDER_JUBAL_STUDIO...',
+            '100% COMPLETE'
+        ];
+        let lineIdx = 0;
+        let charIdx = 0;
+        let currentText = '';
+        let totalChars = lines.reduce((acc, line) => acc + line.length, 0);
+        let currentProgress = 0;
+        function updateProgress() {
+            const progress = Math.min(100, Math.floor((currentProgress / totalChars) * 100));
+            progressFill.style.width = `${progress}%`;
+            progressPercentage.textContent = `${progress}%`;
         }
+        function typeCode() {
+            if (lineIdx === 0 && charIdx === 0) {
+                progressContainer.classList.add('is-active');
+            }
+            if (lineIdx < lines.length) {
+                const line = lines[lineIdx];
+                if (charIdx < line.length) {
+                    currentText += line[charIdx];
+                    terminal.innerHTML = currentText.split('\n').join('<br/>') + '<span class="terminal-cursor"></span>';
+                    charIdx++;
+                    currentProgress++;
+                    updateProgress();
+                    setTimeout(typeCode, Math.random() * 15 + 5);
+                } else {
+                    currentText += '\n';
+                    lineIdx++;
+                    charIdx = 0;
+                    setTimeout(typeCode, 80);
+                }
+            } else {
+                progressFill.style.width = '100%';
+                progressPercentage.textContent = '100%';
+                setTimeout(() => {
+                    terminal.style.transition = 'opacity 0.5s ease';
+                    progressContainer.style.transition = 'opacity 0.5s ease';
+                    terminal.style.opacity = '0';
+                    progressContainer.style.opacity = '0';
+                    setTimeout(() => {
+                        preloaderLogo.classList.add('show');
+                        setTimeout(() => {
+                            preloader.classList.add('reveal-curtain');
+                            document.body.classList.add('is-revealed');
+                            document.body.classList.remove('overflow-hidden');
+                            setTimeout(() => {
+                                preloader.style.visibility = 'hidden';
+                            }, 1500);
+                        }, 1200);
+                    }, 400);
+                }, 400);
+            }
+        }
+        setTimeout(typeCode, 400);
     });
-    const observerOptions = { threshold: 0.1 };
-    const observer = new IntersectionObserver((entries) => {
+    let targetMouseX = 0;
+    let targetMouseY = 0;
+    const revealOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+    const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('opacity-100');
-                entry.target.classList.remove('opacity-0', 'translate-y-20');
+                entry.target.classList.add('is-visible');
+                
+                // Custom handling for the expertise section heading
+                if (entry.target.querySelector('.expertise-word')) {
+                    const words = entry.target.querySelectorAll('.expertise-word');
+                    words.forEach((word, index) => {
+                        setTimeout(() => {
+                            word.classList.remove('opacity-0', 'scale-95');
+                            word.classList.add('opacity-100', 'scale-100');
+                        }, index * 500); // Increased stagger from 200 to 500
+                    });
+                }
             }
         });
-    }, observerOptions);
-    document.querySelectorAll('.data-capsule').forEach(el => {
-        el.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-20');
-        observer.observe(el);
-    });
-    gsap.registerPlugin(ScrollTrigger);
-    document.querySelectorAll('.tapered-divider').forEach(divider => {
-        ScrollTrigger.create({
-            trigger: divider,
-            start: "top 80%",
-            onEnter: () => divider.classList.add('divider-pulse'),
-            onLeaveBack: () => divider.classList.remove('divider-pulse')
-        });
-    });
-    document.addEventListener('mousemove', (e) => {
-        if (Math.random() > 0.8) {
-            const bubble = document.createElement('div');
-            bubble.className = 'cursor-bubble';
-            const size = Math.random() * 8 + 4;
-            bubble.style.width = `${size}px`;
-            bubble.style.height = `${size}px`;
-            bubble.style.left = `${e.clientX}px`;
-            bubble.style.top = `${e.clientY}px`;
-            document.body.appendChild(bubble);
-            gsap.to(bubble, {
-                y: '-=50',
-                opacity: 0,
-                scale: 0.5,
-                duration: 1.5,
-                onComplete: () => bubble.remove()
-            });
+    }, revealOptions);
+    
+    document.querySelectorAll('.reveal-up, .reveal-wipe').forEach(el => revealObserver.observe(el));
+    
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const heroVideo = document.getElementById('heroVideo');
+        if (heroVideo) {
+            const scale = 1 + (scrolled / 400);
+            heroVideo.style.transform = `translate(-50%, -50%) scale(${scale})`;
+        }
+        const titleLine1 = document.getElementById('title-line-1');
+        const titleLine2 = document.getElementById('title-line-2');
+        if (titleLine1 && titleLine2) {
+            const opacity = Math.max(0, 1 - scrolled / 800);
+            const moveX = scrolled / 1.2;
+            titleLine1.style.opacity = opacity;
+            titleLine1.style.transform = `translateX(${-moveX}px)`;
+            titleLine2.style.opacity = opacity;
+            titleLine2.style.transform = `translateX(${moveX}px)`;
+        }
+        const testimonialSection = document.getElementById('testimonial-section');
+        const testimonialContent = document.getElementById('testimonial-content-wrapper');
+        if (testimonialSection && testimonialContent) {
+            const rect = testimonialSection.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+            const progress = 1 - (rect.bottom / (windowHeight + rect.height));
+            if (rect.top < windowHeight && rect.bottom > 0) {
+                const zoomProgress = Math.max(0, (progress - 0.2) / 0.8);
+                const scale = 1 - (zoomProgress * 0.4); 
+                const opacity = 1 - (zoomProgress * 1.2); 
+                testimonialContent.style.transform = `scale(${scale})`;
+                testimonialContent.style.opacity = Math.max(0, opacity);
+            }
+        }
+        const faqSection = document.getElementById('faq');
+        const faqHeader = document.getElementById('faq-header-reveal');
+        if (faqSection && faqHeader) {
+            const rect = faqSection.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+            const scrollDistance = windowHeight * 0.5;
+            const currentPos = windowHeight - rect.top;
+            let flipProgress = Math.max(0, Math.min(1, currentPos / scrollDistance));
+            const easeProgress = flipProgress < 0.5 ? 2 * flipProgress * flipProgress : 1 - Math.pow(-2 * flipProgress + 2, 2) / 2;
+            const rotateX = 90 - (easeProgress * 90);
+            const opacity = easeProgress;
+            const translateY = 50 - (easeProgress * 50);
+            faqHeader.style.transform = `rotateX(${rotateX}deg) translateY(${translateY}px)`;
+            faqHeader.style.opacity = opacity;
         }
     });
-</script>
+    const cursor = document.getElementById('custom-cursor');
+    const follower = document.getElementById('custom-cursor-follower');
+    const trailContainer = document.getElementById('cursor-trail-container');
+    const magneticElements = document.querySelectorAll('.magnetic-target');
+    let dots = [];
+    const DOT_COUNT = 10;
+    const trailPositions = Array(DOT_COUNT).fill({x: 0, y: 0});
+    const isDesktop = () => window.innerWidth >= 1024;
+    for(let i = 0; i < DOT_COUNT; i++) {
+        const dot = document.createElement('div');
+        dot.className = 'cursor-trail-dot';
+        trailContainer.appendChild(dot);
+        dots.push(dot);
+    }
+    let followerX = 0;
+    let followerY = 0;
+    window.addEventListener('mousemove', (e) => {
+        if (!isDesktop()) return;
+        targetMouseX = e.clientX;
+        targetMouseY = e.clientY;
+        cursor.style.transform = `translate3d(${targetMouseX}px, ${targetMouseY}px, 0) translate(-50%, -50%)`;
+        magneticElements.forEach(el => {
+            const rect = el.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+            const distanceX = targetMouseX - centerX;
+            const distanceY = targetMouseY - centerY;
+            const distance = Math.sqrt(distanceX * distanceX + distanceY * distanceY);
+            const threshold = rect.width > 200 ? 250 : 120; 
+            if (distance < threshold) {
+                const magneticPull = 0.2;
+                const x = distanceX * magneticPull;
+                const y = distanceY * magneticPull;
+                el.style.transform = `translate(${x}px, ${y}px)`;
+                document.body.classList.add('cursor-active');
+            } else {
+                el.style.transform = `translate(0px, 0px)`;
+            }
+        });
+        const isHoveringAny = Array.from(magneticElements).some(el => {
+            const rect = el.getBoundingClientRect();
+            const distance = Math.sqrt(Math.pow(targetMouseX - (rect.left + rect.width/2), 2) + Math.pow(targetMouseY - (rect.top + rect.height/2), 2));
+            return distance < (rect.width > 200 ? 250 : 120);
+        });
+        if(!isHoveringAny) document.body.classList.remove('cursor-active');
+    });
+    function updateFollowers() {
+        if (isDesktop()) {
+            followerX += (targetMouseX - followerX) * 0.12;
+            followerY += (targetMouseY - followerY) * 0.12;
+            follower.style.transform = `translate3d(${followerX}px, ${followerY}px, 0) translate(-50%, -50%)`;
+            let px = targetMouseX;
+            let py = targetMouseY;
+            dots.forEach((dot, index) => {
+                const pos = trailPositions[index];
+                const nextX = pos.x + (px - pos.x) * (0.12 + (index * 0.02));
+                const nextY = pos.y + (py - pos.y) * (0.12 + (index * 0.02));
+                trailPositions[index] = {x: nextX, y: nextY};
+                const scale = 1 - (index / DOT_COUNT) * 0.7;
+                const opacity = 0.15 * (1 - (index / DOT_COUNT));
+                dot.style.transform = `translate3d(${nextX}px, ${nextY}px, 0) translate(-50%, -50%) scale(${scale})`;
+                dot.style.opacity = opacity;
+                px = nextX;
+                py = nextY;
+            });
+        }
+        requestAnimationFrame(updateFollowers);
+    }
+    updateFollowers();
+    document.querySelectorAll('.faq-item').forEach((detail) => {
+        detail.addEventListener('toggle', () => {
+            if (detail.open) {
+                document.querySelectorAll('.faq-item').forEach((other) => {
+                    if (other !== detail) other.removeAttribute('open');
+                });
+            }
+        });
+    });
 
-<script>
-const scriptURL = "https://script.google.com/macros/s/AKfycbzwv2nZ7B82fgAZVIlxQZG9rVJmgxoBU9WCJKuKfV7WjZizr59u_FXi7P4-PNYuOuCO/exec";
+    window.addEventListener('scroll', () => {
+        const marqueeSection = document.getElementById('marquee-section');
+        if (marqueeSection) {
+            const rect = marqueeSection.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+            if (rect.top < windowHeight && rect.bottom > 0) {
+                const scrollPosition = window.pageYOffset;
+                const scrollLineLeft = document.querySelector('.scroll-line-left');
+                const scrollLineRight = document.querySelector('.scroll-line-right');
+                
+                if (scrollLineLeft) {
+                    scrollLineLeft.style.transform = `translateX(${-scrollPosition * 0.5 % 500}px)`;
+                }
+                if (scrollLineRight) {
+                    scrollLineRight.style.transform = `translateX(${(scrollPosition * 0.5 % 500) - 500}px)`;
+                }
+            }
+        }
+    });
+    
+    const wordObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const words = entry.target.querySelectorAll('.word');
+                words.forEach((word, index) => {
+                    setTimeout(() => {
+                        word.classList.remove('opacity-0', 'translate-y-4');
+                        word.classList.add('opacity-100', 'translate-y-0');
+                    }, index * 40);
+                });
+                wordObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.2 });
 
-const form = document.querySelector("form");
+    document.querySelectorAll('.word-reveal').forEach(el => wordObserver.observe(el));
+    
+    const projectObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+            }
+        });
+    }, { threshold: 0.1 });
+    
+    document.querySelectorAll('.scroll-tilt-entry').forEach(el => projectObserver.observe(el));
+    </script>
 
-form.addEventListener("submit", function (e) {
-  e.preventDefault();
-
-  const formData = new FormData(form);
-
-  fetch(scriptURL, {
-    method: "POST",
-    body: formData
-  })
-  .then(response => response.text())
-  .then(() => {
-    alert("Message sent successfully 🚀");
-    form.reset();
-  })
-  .catch(error => {
-    console.error("Error!", error);
-    alert("Something went wrong.");
-  });
-});
-</script>
-
-<a href="https://wa.me/5927598644" 
-   target="_blank"
-   class="fixed bottom-6 right-6 z-50">
-
-  <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center shadow-lg 
-              hover:scale-110 transition-all duration-300">
-
-    <!-- WhatsApp SVG Icon -->
-    <svg xmlns="http://www.w3.org/2000/svg" 
-         viewBox="0 0 24 24" 
-         fill="white" 
-         class="w-8 h-8">
-      <path d="M20.52 3.48A11.79 11.79 0 0012.03 0C5.4 0 .05 5.35.05 11.98c0 2.11.55 4.17 1.6 5.99L0 24l6.19-1.62a11.93 11.93 0 005.84 1.49h.01c6.63 0 11.98-5.35 11.98-11.98 0-3.2-1.25-6.21-3.5-8.41zM12.04 21.8c-1.8 0-3.56-.48-5.11-1.38l-.37-.22-3.68.96.98-3.59-.24-.37a9.79 9.79 0 01-1.52-5.22c0-5.44 4.43-9.87 9.87-9.87 2.64 0 5.13 1.03 6.99 2.9a9.82 9.82 0 012.89 6.98c0 5.44-4.43 9.87-9.87 9.87zm5.4-7.41c-.3-.15-1.77-.87-2.05-.97-.28-.1-.48-.15-.68.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47-.88-.79-1.47-1.77-1.64-2.07-.17-.3-.02-.46.13-.61.14-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.68-1.64-.93-2.25-.24-.58-.49-.5-.68-.51-.17-.01-.37-.01-.57-.01-.2 0-.52.07-.8.37-.28.3-1.06 1.04-1.06 2.54 0 1.5 1.09 2.95 1.24 3.15.15.2 2.14 3.27 5.19 4.58.73.31 1.3.5 1.74.64.73.23 1.4.2 1.93.12.59-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35z"/>
-    </svg>
-
-  </div>
-</a>
-</body></html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+```</body></html>
