@@ -1156,6 +1156,8 @@ Common <span class="text-[var(--primary-accent)]">Inquiries</span>
 </button>
 </div>
 </form>
+<div id="form-message" style="margin-top: 1rem; font-weight: bold;"></div>
+
 </div>
 </div>
 </div>
@@ -1503,52 +1505,52 @@ document.querySelectorAll('.word-reveal')
     document.querySelectorAll('.scroll-tilt-entry').forEach(el => projectObserver.observe(el));
     </script>
 
-    <script>
-const form = document.querySelector('form');
 
-// Custom messages
+
+<script>
+const form = document.querySelector('form');
+const messageDiv = document.getElementById('form-message');
+
 const successMessage = "✅ Thank you! Your message has been sent.";
 const errorMessage = "❌ Oops! Something went wrong. Please try again.";
 
-// Replace with your deployed Web App URL
-const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxVo0lxrV04323cffK_e0hlJkcfG1rRVd3Kc0L5rIJ43E21BunI1DCg2Z197L8eB-PM/exec";
+// Replace with your Apps Script Web App URL
+const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwfp_ccT4rFielPvJ28zPWyEV5zmKPdVzCWiwUUGgmz79PEGBv9cPPS5zbU2YenSOdT/exec";
 
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
 
-  const data = {
-    name: form.name.value.trim(),
-    email: form.email.value.trim(),
-    message: form.message.value.trim()
-  };
-
-  if (!data.name || !data.email || !data.message) {
-    alert("⚠️ Please fill in all fields.");
-    return;
-  }
+  const formData = new FormData(form);
 
   try {
     const response = await fetch(WEB_APP_URL, {
       method: "POST",
-      mode: "cors",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data)
+      body: formData
     });
 
-    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+    const text = await response.text();
 
-    const result = await response.json();
-
-    if (result.result === "success") {
-      alert(successMessage);
+    if (text === "success") {
+      showMessage(successMessage, true); // true = success
       form.reset();
     } else {
-      alert(errorMessage + "\nDetails: " + result.error);
+      showMessage(errorMessage + " Details: " + text, false);
     }
   } catch (err) {
-    alert(errorMessage + "\nDetails: " + err.message + "\n⚠️ Make sure your Apps Script has CORS headers and is deployed as 'Anyone, even anonymous'.");
+    showMessage(errorMessage + " Details: " + err.message, false);
   }
 });
+
+// Function to show message temporarily
+function showMessage(msg, isSuccess) {
+  messageDiv.textContent = msg;
+  messageDiv.style.color = isSuccess ? "green" : "red";
+
+  // Remove message after 2 seconds
+  setTimeout(() => {
+    messageDiv.textContent = "";
+  }, 2000);
+}
 </script>
 
 
