@@ -1510,36 +1510,32 @@ const form = document.querySelector('form');
 const successMessage = "✅ Thank you! Your message has been sent.";
 const errorMessage = "❌ Oops! Something went wrong. Please try again.";
 
+// Replace with your deployed Web App URL
+const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxVo0lxrV04323cffK_e0hlJkcfG1rRVd3Kc0L5rIJ43E21BunI1DCg2Z197L8eB-PM/exec";
+
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
 
-  // Collect form data
   const data = {
     name: form.name.value.trim(),
     email: form.email.value.trim(),
     message: form.message.value.trim()
   };
 
-  // Simple validation
   if (!data.name || !data.email || !data.message) {
     alert("⚠️ Please fill in all fields.");
     return;
   }
 
   try {
-    const response = await fetch("https://script.google.com/macros/s/AKfycbw75tjbtj6XzvAl1lPjT-N0rQGPjWi0yYG026UTaHzWtptOJmEuAnUY1GpiYDCVjglE/exec", {
+    const response = await fetch(WEB_APP_URL, {
       method: "POST",
-      mode: "cors", // triggers preflight
-      headers: {
-        "Content-Type": "application/json"
-      },
+      mode: "cors",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data)
     });
 
-    // If the response is not ok (like 403 or 405), throw an error
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
+    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
 
     const result = await response.json();
 
@@ -1550,14 +1546,11 @@ form.addEventListener('submit', async (e) => {
       alert(errorMessage + "\nDetails: " + result.error);
     }
   } catch (err) {
-    alert(errorMessage + "\nDetails: " + err.message + "\n⚠️ Remember: CORS issues happen if Apps Script is not configured properly.");
+    alert(errorMessage + "\nDetails: " + err.message + "\n⚠️ Make sure your Apps Script has CORS headers and is deployed as 'Anyone, even anonymous'.");
   }
 });
-
-
 </script>
 
 
 
 ```</body></html>
-
