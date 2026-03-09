@@ -286,12 +286,12 @@ transform 0.8s cubic-bezier(.22,.61,.36,1);
         }
         #preloader-logo {
             opacity: 0;
-            transform: translateY(10px);
+            transform: translateY(-140px);
             transition: opacity 0.8s ease, transform 0.8s ease;
         }
         #preloader-logo.show {
             opacity: 1;
-            transform: translateY(0);
+            transform: translateY(-140);
         }
         #progress-container {
             width: 320px;
@@ -1032,32 +1032,32 @@ filter:brightness(1.2);">
 
 <div class="section-separator"></div>
 
-<section class="py-52 px-8 bg-black text-white overflow-hidden relative" id="testimonial-section">
-<div class="max-w-5xl mx-auto text-center relative z-10">
-<div class="testimonial-zoom opacity-100 transform scale-100" id="testimonial-content-wrapper">
-<span class="material-symbols-outlined text-7xl text-[var(--primary-accent)] mb-16 font-thin">format_quote</span>
-<blockquote class="text-4xl md:text-6xl font-serif-display leading-[1.2] mb-20 italic font-light tracking-tight text-white">
-                "The website completely transformed how our business looks online. It's fast, modern, and our customers can <span class="text-[var(--primary-accent)]">finally </span> find us easily on Google."
-            </blockquote>
-<div class="flex flex-col items-center">
-<p class="text-[11px] font-bold tracking-[0.5em] uppercase mb-4 text-white">Michael </p>
-<div class="w-12 h-px bg-white/20 mb-4"></div>
-<p class="text-[10px] font-semibold tracking-[0.2em] uppercase text-[var(--primary-accent)]">Business Owner</p>
-</div>
-</div>
-</div>
+<section class="py-24 px-8 bg-gray-200 text-white overflow-hidden relative" id="testimonial-section">
+  <div class="max-w-5xl mx-auto text-center relative z-10">
+    <div class="testimonial-zoom opacity-100 transform scale-100" id="testimonial-content-wrapper">
+      <span class="material-symbols-outlined text-7xl text-[var(--primary-accent)] mb-16 font-thin">format_quote</span>
+      <blockquote class="text-4xl md:text-6xl font-serif-display leading-[1.2] mb-20 italic font-light tracking-tight text-black">
+        "The website completely transformed how our business looks online. It's fast, modern, and our customers can <span class="text-[var(--primary-accent)]">finally </span> find us easily on Google."
+      </blockquote>
+      <div class="flex flex-col items-center">
+        <p class="text-[11px] font-bold tracking-[0.5em] uppercase mb-4 text-black">Michael</p>
+        <div class="w-12 h-px bg-white/20 mb-4"></div>
+        <p class="text-[10px] font-semibold tracking-[0.2em] uppercase text-black">Business Owner</p>
+      </div>
+    </div>
+  </div>
 </section>
 
 <div class="section-separator"></div>
 
-<div class="relative bg-[var(--dark-charcoal)] pt-[12vh]" id="faq-container">
-<section id="faq" class="py-24">
-<div class="max-w-4xl mx-auto text-center w-full px-8 faq-container-spacer">
-<div class="mb-6 perspective-container">
-<div id="faq-header-reveal">
-<h2 class="text-3xl md:text-4xl font-serif-display font-black text-white leading-tight uppercase mb-8">
-Common <span class="text-[var(--primary-accent)]">Inquiries</span>
-</h2>
+<div class="relative bg-[var(--dark-charcoal)] pt-12" id="faq-container">
+  <section id="faq" class="py-6"> <!-- reduced from py-24 -->
+    <div class="max-w-4xl mx-auto text-center w-full px-8 faq-container-spacer">
+      <div class="mb-6 perspective-container">
+        <div id="faq-header-reveal">
+          <h2 class="text-3xl md:text-4xl font-serif-display font-black text-white leading-tight uppercase mb-8">
+            Common <span class="text-[var(--primary-accent)]">Inquiries</span>
+          </h2>
 </div>
 </div>
 <div class="reveal-up text-left">
@@ -1184,9 +1184,11 @@ Common <span class="text-[var(--primary-accent)]">Inquiries</span>
 <span class="logo-shimmer text-2xl font-serif-display font-black tracking-tighter uppercase text-white">Jubal Web Studio</span>
 </div></span>
 <p class="text-[10px] font-bold tracking-[0.3em] text-white/40 uppercase leading-loose">
-                    High-End Content &amp; Digital Design<br/>
-                    Based in Georgetown, Guyana – Serving Clients Worldwide.
-                </p>
+    High-End Content &amp; Digital Design<br/>
+    Based in Georgetown, Guyana – Serving Clients Worldwide.<br/>
+    Email: <a href="mailto:safrazsalim1@gmail.com" class="hover:text-white">safrazsalim1@gmail.com</a><br/>
+       Phone: <a href="tel:+5927598644" class="hover:text-white">+592 759 8644</a>
+</p>
 </div>
 <div class="flex flex-col space-y-4">
 <span class="text-[10px] font-bold tracking-[0.4em] uppercase mb-4 text-white/40 italic">Socials</span>
@@ -1555,4 +1557,4 @@ function showMessage(msg, isSuccess) {
 
 
 
-```</body></html>
+</body></html>
