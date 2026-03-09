@@ -14,6 +14,8 @@
 <title>Web Design Guyana | Website Development in Georgetown – Jubal Web Studio</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&amp;family=Inter:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@300;500&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+
+
 <script src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries">
     window.addEventListener('scroll', () => {
         const marqueeSection = document.getElementById('marquee-section');
@@ -628,7 +630,7 @@ transition: transform 0.35s ease;
 <header class="relative min-h-screen flex items-center justify-center overflow-hidden pt-12">
 <div class="absolute inset-0 hero-reveal-bg">
 <video autoplay class="hero-video-bg" loop muted playsinline id="heroVideo">
-  <source src="ai.mp4" type="video/mp4">
+  <source src="ff.mp4" type="video/mp4">
 </video>
 
 <script>
@@ -811,7 +813,7 @@ filter:brightness(1.2);">
 </div>
 <div class="scroll-line-right whitespace-nowrap flex items-center select-none">
 <div class="flex items-center space-x-12 pr-12">
-<span class="text-2xl md:text-2xl font-bold uppercase tracking-tighter text-white opacity-40">TypeScript</span>
+<span class="text-2xl md:text-2xl font-bold uppercase tracking-tighter text-white opacity-40">JavaScript</span>
 <span class="w-3 h-3 bg-[var(--primary-accent)] rounded-full"></span>
 <span class="text-5xl md:text-4xl font-bold uppercase tracking-widest text-white opacity-90">Design</span>
 <span class="w-3 h-3 bg-[var(--primary-accent)] rounded-full"></span>
@@ -821,83 +823,212 @@ filter:brightness(1.2);">
 <span class="w-3 h-3 bg-[var(--primary-accent)] rounded-full"></span>
 <span class="text-2xl md:text-1xl font-bold uppercase tracking-tighter text-white opacity-40">Strategy</span>
 <span class="w-3 h-3 bg-[var(--primary-accent)] rounded-full"></span>
-<span class="text-5xl md:text-3xl font-bold uppercase tracking-widest text-white opacity-90">Story</span>
+<span class="text-5xl md:text-3xl font-bold uppercase tracking-widest text-white opacity-90">E-Commerce </span>
 <span class="w-3 h-3 bg-[var(--primary-accent)] rounded-full"></span>
 <span class="text-4xl md:text-4xl font-bold uppercase tracking-tight text-white opacity-80">Identity</span>
 </div>
 <div class="flex items-center space-x-12 pr-12">
-<span class="text-2xl md:text-2xl font-bold uppercase tracking-tighter text-white opacity-40">TypeScript</span>
+<span class="text-2xl md:text-2xl font-bold uppercase tracking-tighter text-white opacity-40">JavaScript</span>
 <span class="w-3 h-3 bg-[var(--primary-accent)] rounded-full"></span>
 <span class="text-5xl md:text-3xl font-bold uppercase tracking-widest text-white opacity-90">Design</span>
 <span class="w-3 h-3 bg-[var(--primary-accent)] rounded-full"></span>
 <span class="text-4xl md:text-3xl font-bold uppercase tracking-tight text-white opacity-80">Motion</span>
 <span class="w-3 h-3 bg-[var(--primary-accent)] rounded-full"></span>
-<span class="text-3xl md:text-2xl font-bold uppercase tracking-normal text-white opacity-60">WebGL</span>
+<span class="text-3xl md:text-2xl font-bold uppercase tracking-normal text-white opacity-60">Mobile Responsive</span>
 </div>
 </div>
 </section>
+
 <div class="section-separator"></div>
-<section class="py-40 px-8 bg-[var(--dark-charcoal)]" id="portfolio">
-<div class="max-w-7xl mx-auto">
-<div class="mb-32 reveal-up">
-<h2 class="text-[10px] font-bold tracking-[0.4em] uppercase opacity-40 mb-6 text-white">Portfolio</h2>
-<h3 class="font-serif-display text-4xl md:text-6xl text-white">Selected <span class="italic text-[var(--primary-accent)]">Works</span></h3>
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ff8c00",
+                        "background-light": "#fcfaf7",
+                        "background-dark": "#051508",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<title>Premium Web Design Portfolio</title>
+<style>
+    .portfolio-grid {
+        perspective: 2000px;
+    }
+    .project-card {
+        transition: transform 0.2s ease-out, box-shadow 0.3s ease;
+        transform-style: preserve-3d;
+    }
+    .project-card:hover {
+        box-shadow: 0 25px 50px -12px rgba(255, 140, 0, 0.25);
+    }
+    .pixel-fade {
+        transition: mask-image 0.5s ease, -webkit-mask-image 0.5s ease, opacity 0.5s ease;
+        mask-size: 20px 20px;
+        mask-repeat: repeat;
+        -webkit-mask-size: 20px 20px;
+        -webkit-mask-repeat: repeat;
+    }
+    .pixelating {
+        opacity: 0;
+        mask-image: radial-gradient(circle, transparent 0%, black 1px);
+        -webkit-mask-image: radial-gradient(circle, transparent 0%, black 1px);
+    }
+</style></head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden"><div class="fixed inset-0 pointer-events-none overflow-hidden">
+<div class="absolute -top-24 -left-24 w-96 h-96 bg-primary/20 rounded-full blur-[120px]"></div>
+<div class="absolute top-1/2 -right-24 w-80 h-80 bg-emerald-900/20 rounded-full blur-[100px]"></div>
+<div class="absolute bottom-0 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[150px]"></div>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-8">
-<!-- Project 01 -->
-<div class="project-3d-card scroll-tilt-entry group cursor-none">
-<div class="project-3d-card-inner relative">
-<div class="project-3d-image-wrap aspect-[4/5] rounded-lg overflow-hidden bg-neutral-900 mb-8">
-<img alt="Tech Minds" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfNdIT7TJu35HUSuB4xLCQIR6RI422DK2YgNPN3N9LxOnnuHi9ipc38S6H932IaSPpU_-9SVJLgadiam0xWM4NVdB9-Og8XW67vFsCs9yyb1meMI6WLZ_bkya2jrh1-a7xiHGCdH40Xm8ZrjCZsQV5hTLlxGiJGT7BUYE9MuOrcWSLxR_M5lhOBCwxjDnwyUDoSmMnal1mVOzf-5vch6LZoQBXu0VyTe4Tzmyjtnbp0isUbCpOdFJWSaQKjHKnTdrY8KHan3u97g"/>
+<!-- Top Navigation Bar -->
+<main class="flex-1 mx-auto w-full px-6 md:px-10 py-16 max-w-6xl"><div class="text-center mb-16 max-w-3xl mx-auto">
+<h2 class="text-4xl md:text-5xl font-black mb-6 tracking-tight dark:text-white dark:text-orange-50">
+        Our Work
+    </h2>
+<p class="text-lg md:text-xl text-slate-600 dark:text-slate-400 font-medium leading-relaxed dark:text-orange-50/70">
+        A showcase of our latest digital experiences and innovative solutions, where strategy meets exceptional design.
+    </p>
 </div>
-<div class="project-3d-content space-y-4">
-<span class="text-[9px] font-bold tracking-[0.3em] uppercase text-[var(--primary-accent)]">Direction / 2024</span>
-<h4 class="text-3xl font-serif-display text-white">Tech Minds</h4>
-<p class="text-white/40 text-sm font-light leading-relaxed line-clamp-2">A global digital transformation focusing on the sensory nature of software interfaces.</p>
-<a class="inline-flex items-center space-x-3 text-[9px] font-bold tracking-[0.2em] uppercase text-white border-b border-white/20 pb-1 hover:border-[var(--primary-accent)] transition-colors" href="#">
-<span>Explore Case</span>
-<span class="material-symbols-outlined text-xs">east</span>
-</a>
-</div>
-</div>
-</div>
-<!-- Project 02 -->
-<div class="project-3d-card scroll-tilt-entry group cursor-none lg:mt-24">
-<div class="project-3d-card-inner relative">
-<div class="project-3d-image-wrap aspect-[4/5] rounded-lg overflow-hidden bg-neutral-900 mb-8">
-<img alt="Aesthetic Lab" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgfrUkia1KIw_tBCCvwGXsatDtJ_Vibj4Qu7qcmGFkp1bdSjzYMYtLhuyh9Inj9TGNhJAVZUVsDxKRbVc7x29SuUhUm4WwFofze8ZiR4xD4PQnTuhoyNKZEOePyzd2uWXZQ5zBT5TwzUwwq5CqZtA8bbkID5WKY_xcxE-wlzuWQRjFRiKMdxQb8hSplYRRCkFMY63RQJWfNT9miX-22aFp8LzWcMPK6J8rPU8Te7rNpSefpPg6xVqFO8xBSt--M4GnHMhnEkb6RA"/>
-</div>
-<div class="project-3d-content space-y-4">
-<span class="text-[9px] font-bold tracking-[0.3em] uppercase text-[var(--primary-accent)]">Design / 2023</span>
-<h4 class="text-3xl font-serif-display text-white">Aesthetic Lab</h4>
-<p class="text-white/40 text-sm font-light leading-relaxed line-clamp-2">Crafting high-fidelity prototypes for futuristic fashion platforms.</p>
-<a class="inline-flex items-center space-x-3 text-[9px] font-bold tracking-[0.2em] uppercase text-white border-b border-white/20 pb-1 hover:border-[var(--primary-accent)] transition-colors" href="#">
-<span>Explore Case</span>
-<span class="material-symbols-outlined text-xs">east</span>
-</a>
+<!-- Hero Title Section -->
+<!-- Filter Tabs -->
+<!-- Portfolio Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 portfolio-grid gap-8">
+<!-- Project 1 -->
+<div class="group flex flex-col project-card pixel-fade gap-4">
+<div class="relative overflow-hidden rounded-2xl bg-slate-100 dark:bg-slate-900 aspect-video shadow-xl border border-slate-200 dark:border-slate-800">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Modern analytics dashboard interface with purple accents" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAZ1155dQeEm5OxQhxe984Lylaa_-T3yP88i79__EGmHde9kcF05OPnmcV0PIyj5MgfqY5gjIsQ3RXHl7cE6rqXARI1NB4Vgs_2HbGY1ItQ6sczzCxEyR4ST3Fng2JWuS6nfcZRADNaFN-iZa43zkN5XbYveyDDp-fpU9rfstdMjYVN3u0DzFilw4R9h5MYFvJJawgyQ_Ha-zjBuP7M5sDF9xyuKd_9ZlFOLsXdxWMLl9zzCsyZ0QdoGbUgZgMoFKcZrkEmwXDamSPc");'></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-8">
+<button class="bg-white text-background-dark px-6 py-3 rounded-xl font-bold flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-transform">
+                            View Case Study <span class="material-symbols-outlined text-sm group-hover:text-primary text-primary/90">arrow_forward</span>
+</button>
 </div>
 </div>
+<div class="flex flex-col gap-2">
+<div class="flex justify-between items-start">
+<h3 class="text-2xl font-bold group-hover:text-primary transition-colors dark:text-orange-50">Aura Skincare</h3>
+<span class="text-xs font-bold bg-slate-100 dark:bg-slate-800 px-3 py-1 rounded-full uppercase group-hover:text-primary text-primary/90">E-Commerce</span>
 </div>
-<!-- Project 03 -->
-<div class="project-3d-card scroll-tilt-entry group cursor-none">
-<div class="project-3d-card-inner relative">
-<div class="project-3d-image-wrap aspect-[4/5] rounded-lg overflow-hidden bg-neutral-900 mb-8">
-<img alt="Neural Studio" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFtca04osCZcPc7WgEZe16XoXqbTQaM_46V_AApdfERuoFnVMImIhjTFyKxQIx18hSsjE8jnhyhdi5yfXn7GuRK8bbwcHiV75ANS0VM6ym0gSkTuYSoAGGYJvhaE92JPqHlrIzDgZO0_pWQQdfPRXRzDLNTreLV1l0WiUuslOjrcmCd06XGd5R96BETRMBaoWO7vhyjwf5_w3MGcaDTYCnXQPVJMt-mZHiJxKXaziteWe_0NkHPAIj43BJ9OSNKtU9k5jyvifQfA"/>
-</div>
-<div class="project-3d-content space-y-4">
-<span class="text-[9px] font-bold tracking-[0.3em] uppercase text-[var(--primary-accent)]">Strategy / 2024</span>
-<h4 class="text-3xl font-serif-display text-white">Neural Studio</h4>
-<p class="text-white/40 text-sm font-light leading-relaxed line-clamp-2">Developing AI-driven editorial systems for luxury publications.</p>
-<a class="inline-flex items-center space-x-3 text-[9px] font-bold tracking-[0.2em] uppercase text-white border-b border-white/20 pb-1 hover:border-[var(--primary-accent)] transition-colors" href="#">
-<span>Explore Case</span>
-<span class="material-symbols-outlined text-xs">east</span>
-</a>
+<p class="text-slate-600 dark:text-slate-400 line-clamp-2 dark:text-orange-50/70">A high-conversion headless commerce platform designed for a luxury skincare brand, featuring intuitive navigation and seamless checkout.</p>
 </div>
 </div>
+<!-- Project 2 -->
+<div class="group flex flex-col project-card pixel-fade gap-4">
+<div class="relative overflow-hidden rounded-2xl bg-slate-100 dark:bg-slate-900 aspect-video shadow-xl border border-slate-200 dark:border-slate-800">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Fintech mobile app screens showing dark mode UI" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCKVvMXy0DYm8RXhv99wWsQVL8UBFkDU7VaZivfY40gVBpsTEWCGY_IEgzpueauDtufFhypUP7yxOrwvHkzD0GDs81trRMrrTgs5GJKMJxeGWUYKxT854C2cmeuV8_W07iXme0mWjAwZv4WPmOpC1S0wdEwlgAG7m3o1ER5jPpCSOwLPZ40ARB-Gh2nsl0USBQy0O2MWD7va3Lkc6WvMSO6jjD6eoTksDbtLm2dQ67jwq6yFvxnsTS75ljALpXmF3yh4uhFgKOL19hh");'></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-8">
+<button class="bg-white text-background-dark px-6 py-3 rounded-xl font-bold flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-transform">
+                            View Case Study <span class="material-symbols-outlined text-sm group-hover:text-primary text-primary/90">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<div class="flex justify-between items-start">
+<h3 class="text-2xl font-bold group-hover:text-primary transition-colors dark:text-orange-50">Vertex Finance</h3>
+<span class="text-xs font-bold bg-slate-100 dark:bg-slate-800 px-3 py-1 rounded-full uppercase group-hover:text-primary text-primary/90">FinTech</span>
+</div>
+<p class="text-slate-600 dark:text-slate-400 line-clamp-2 dark:text-orange-50/70">Reimagining mobile banking for the next generation. We focused on clarity, security, and accessibility for over 500k active users.</p>
+</div>
+</div>
+<!-- Project 3 -->
+<div class="group flex flex-col project-card pixel-fade gap-4">
+<div class="relative overflow-hidden rounded-2xl bg-slate-100 dark:bg-slate-900 aspect-video shadow-xl border border-slate-200 dark:border-slate-800">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Minimalist real estate website layout on desktop monitor" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAAterg0UM9zw2EX_WI0d1te33wuBjHKCmefRoge7CUzXTikRzhj6hofV1w-dDdcxPtLREk9e0XQ_u4XKgqYwKMf2eYJlVbf02FCpu4IoxBxyiY2n01k2IxNd9fRbYcPOKdaEcDebStvNiD2qfIcWAkekl8APLCtiZxrREfJAax3qiMIdkJpBYQeg0ZtMPpJu2dytgwcdlKKoclLu2Rd0WtKArO6K364kYUE82NWSRqZitCAxQKookn7OBKsq3xBV0Abc7wwP2IEB4X");'></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-8">
+<button class="bg-white text-background-dark px-6 py-3 rounded-xl font-bold flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-transform">
+                            View Case Study <span class="material-symbols-outlined text-sm group-hover:text-primary text-primary/90">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<div class="flex justify-between items-start">
+<h3 class="text-2xl font-bold group-hover:text-primary transition-colors dark:text-orange-50">Skyline Proptech</h3>
+<span class="text-xs font-bold bg-slate-100 dark:bg-slate-800 px-3 py-1 rounded-full uppercase group-hover:text-primary text-primary/90">Real Estate</span>
+</div>
+<p class="text-slate-600 dark:text-slate-400 line-clamp-2 dark:text-orange-50/70">A data-driven property portal that simplifies the complex world of real estate investing through interactive mapping and analysis tools.</p>
+</div>
+</div>
+<!-- Project 4 -->
+<div class="group flex flex-col project-card pixel-fade gap-4">
+<div class="relative overflow-hidden rounded-2xl bg-slate-100 dark:bg-slate-900 aspect-video shadow-xl border border-slate-200 dark:border-slate-800">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Supply chain dashboard with 3D logistics visualizations" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDtj3fajLcTUiPa5BROmHqdIul3AB7eiYe-H037g2ro_gp0_a6nlU7Z_BaYcWBcItJZUiO-zwQPiq5anMvXYLK-jyLB3hU7FUSfEBdapCuAqDkLLXzeJ0kU_P482_I4c7adKJpADekp4EWG03VJ8I2vNDZQaAJ30u2UegCoW09u7oJIT_WW8XTu8Qk3wyVIrKlOxKLZB8TrHhFBC84Ok1OzZ1O8PRhPT2oO8yxaW__Cf13L2fw3cbrUDya5cJCzwHiJkQ61Iu-jKOaa");'></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-8">
+<button class="bg-white text-background-dark px-6 py-3 rounded-xl font-bold flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-transform">
+                            View Case Study <span class="material-symbols-outlined text-sm group-hover:text-primary text-primary/90">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<div class="flex justify-between items-start">
+<h3 class="text-2xl font-bold group-hover:text-primary transition-colors dark:text-orange-50">Nexus Logistics</h3>
+<span class="text-xs font-bold bg-slate-100 dark:bg-slate-800 px-3 py-1 rounded-full uppercase group-hover:text-primary text-primary/90">Enterprise</span>
+</div>
+<p class="text-slate-600 dark:text-slate-400 line-clamp-2 dark:text-orange-50/70">Optimizing supply chain visibility with a powerful SaaS platform. Streamlining operations for global logistics providers.</p>
 </div>
 </div>
 </div>
-</section>
+<!-- Call to Action -->
+</main>
+<!-- Footer -->
+</div>
+<script>
+    // 3D Tilt Effect
+    const cards = document.querySelectorAll('.project-card');
+    cards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            const rotateX = (y - centerY) / 15;
+            const rotateY = (centerX - x) / 15;
+
+            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+        });
+
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+        });
+    });
+
+    // Pixelation Scroll Animation
+    const observerOptions = {
+        root: null,
+        threshold: 0,
+        rootMargin: '-50px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            // If the card is moving out of the viewport
+            if (!entry.isIntersecting) {
+                entry.target.classList.add('pixelating');
+            } else {
+                entry.target.classList.remove('pixelating');
+            }
+        });
+    }, observerOptions);
+
+    cards.forEach(card => observer.observe(card));
+</script></body></html>
 
 <div class="section-separator"></div>
 
@@ -1372,5 +1503,60 @@ document.querySelectorAll('.word-reveal')
     document.querySelectorAll('.scroll-tilt-entry').forEach(el => projectObserver.observe(el));
     </script>
 
-```</body></html>
+    <script>
+const form = document.querySelector('form');
 
+// Custom messages
+const successMessage = "✅ Thank you! Your message has been sent.";
+const errorMessage = "❌ Oops! Something went wrong. Please try again.";
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+
+  // Collect form data
+  const data = {
+    name: form.name.value.trim(),
+    email: form.email.value.trim(),
+    message: form.message.value.trim()
+  };
+
+  // Simple validation
+  if (!data.name || !data.email || !data.message) {
+    alert("⚠️ Please fill in all fields.");
+    return;
+  }
+
+  try {
+    const response = await fetch("https://script.google.com/macros/s/AKfycbw75tjbtj6XzvAl1lPjT-N0rQGPjWi0yYG026UTaHzWtptOJmEuAnUY1GpiYDCVjglE/exec", {
+      method: "POST",
+      mode: "cors", // triggers preflight
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    });
+
+    // If the response is not ok (like 403 or 405), throw an error
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const result = await response.json();
+
+    if (result.result === "success") {
+      alert(successMessage);
+      form.reset();
+    } else {
+      alert(errorMessage + "\nDetails: " + result.error);
+    }
+  } catch (err) {
+    alert(errorMessage + "\nDetails: " + err.message + "\n⚠️ Remember: CORS issues happen if Apps Script is not configured properly.");
+  }
+});
+
+
+</script>
+
+
+
+```</body></html>
