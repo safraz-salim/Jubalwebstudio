@@ -574,6 +574,71 @@ transition: transform 0.35s ease;
             opacity: 1;
             transform: translateY(0) rotateX(0);
         }
+
+      .wa-btn{
+position:fixed;
+bottom:25px;
+right:25px;
+display:flex;
+align-items:center;
+gap:10px;
+background:#25D366;
+color:white;
+padding:12px 18px;
+border-radius:50px;
+text-decoration:none;
+font-weight:600;
+font-size:14px;
+box-shadow:0 12px 30px rgba(0,0,0,0.25);
+z-index:9999;
+transition:all .3s ease;
+animation:waPulse 2s infinite;
+}
+
+.wa-btn img{
+width:26px;
+height:26px;
+}
+
+.wa-btn:hover{
+transform:translateY(-3px) scale(1.05);
+animation:none;
+}
+
+.wa-text{
+white-space:nowrap;
+}
+
+@keyframes waPulse{
+
+0%{
+box-shadow:0 0 0 0 rgba(37,211,102,0.6);
+}
+
+70%{
+box-shadow:0 0 0 18px rgba(37,211,102,0);
+}
+
+100%{
+box-shadow:0 0 0 0 rgba(37,211,102,0);
+}
+
+}
+
+/* Mobile */
+
+@media (max-width:600px){
+
+.wa-text{
+display:none;
+}
+
+.wa-btn{
+padding:14px;
+border-radius:50%;
+}
+
+}
     </style>
 <div id="custom-cursor"></div>
 <div id="custom-cursor-follower"></div>
@@ -891,7 +956,9 @@ filter:brightness(1.2);">
         mask-image: radial-gradient(circle, transparent 0%, black 1px);
         -webkit-mask-image: radial-gradient(circle, transparent 0%, black 1px);
     }
-</style></head>
+</style>
+
+</head>
 <body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased">
 <div class="relative flex min-h-screen w-full flex-col overflow-x-hidden"><div class="fixed inset-0 pointer-events-none overflow-hidden">
 <div class="absolute -top-24 -left-24 w-96 h-96 bg-primary/20 rounded-full blur-[120px]"></div>
@@ -1555,6 +1622,14 @@ function showMessage(msg, isSuccess) {
 }
 </script>
 
+<a href="https://wa.me/5927598644?text=Hello, I’m interested in getting a website for my business." 
+class="wa-btn" target="_blank" aria-label="Chat on WhatsApp">
 
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" 
+alt="WhatsApp">
+
+<span class="wa-text">Chat with us</span>
+
+</a>
 
 </body></html>
